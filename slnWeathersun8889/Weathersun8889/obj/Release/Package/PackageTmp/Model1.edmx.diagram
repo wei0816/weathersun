@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1509d7c85756428d8c9093d005bf1e79" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseWSModel.公告事項" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseWSModel.商品" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseWSModel.商品推薦表" Width="1.5" PointX="6" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseWSModel.貼文" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseWSModel.會員" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseWSModel.管理員" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseWSModel.Hashtag" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseWSModel.系統回報資料" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseWSModel.身分驗證資料" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseWSModel.穿搭資料" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseWSModel.虛擬人像" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseWSModel.FK__公告事項__會員帳號__3C34F16F" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseWSModel.FK__管理員__管理員編號__3D2915A8" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseWSModel.FK__商品推薦表__商品標籤__5224328E" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseWSModel.FK__貼文__商品標籤__540C7B00" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseWSModel.FK__Hashtag__貼文編號__531856C7" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseWSModel.FK__貼文__會員帳號__607251E5" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseWSModel.FK__系統回報資料__會員帳號__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseWSModel.FK__身分驗證資料__會員帳號__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseWSModel.FK__穿搭資料__會員帳號__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseWSModel.FK__虛擬人像__會員帳號__5EBF139D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

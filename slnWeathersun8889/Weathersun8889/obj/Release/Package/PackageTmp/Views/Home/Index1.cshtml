@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Weathersun8889.會員>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script>
+    $(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+@{ ViewBag.Title = "會員管理平台"; }
+
+<h2>會員管理平台</h2>
+
+<p>
+    @Html.ActionLink("登出", "Index3")
+</p>
+<table id="myTable" class="display">
+    <thead>
+        <tr style="background-color:#f0f8ff;">
+            <th>
+                @Html.DisplayNameFor(model => model.會員帳號)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.性別)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.用戶名)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.個人頭貼)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.會員密碼)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.生日)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.居住地區)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.會員帳號)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.性別)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.用戶名)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.個人頭貼)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.會員密碼)
+                </td>
+                <td>
+                    @DateTime.Parse(item.生日.ToString()).ToShortDateString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.居住地區)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Edit", new { account = item.會員帳號 },
+                       new { @class = "glyphicon glyphicon-edit" })
+                    @Html.ActionLink(" ", "Delete", new { account = item.會員帳號 },
+                   new { @class = "glyphicon glyphicon-trash", onclick = "return confirm('確定刪除嗎?');" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

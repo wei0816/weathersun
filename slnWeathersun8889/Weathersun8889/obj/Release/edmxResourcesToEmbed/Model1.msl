@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseWSModelStoreContainer" CdmEntityContainer="DatabaseWSEntities15">
+    <EntitySetMapping Name="公告事項">
+      <EntityTypeMapping TypeName="DatabaseWSModel.公告事項">
+        <MappingFragment StoreEntitySet="公告事項">
+          <ScalarProperty Name="管理員編號" ColumnName="管理員編號" />
+          <ScalarProperty Name="會員帳號" ColumnName="會員帳號" />
+          <ScalarProperty Name="系統公告" ColumnName="系統公告" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="商品">
+      <EntityTypeMapping TypeName="DatabaseWSModel.商品">
+        <MappingFragment StoreEntitySet="商品">
+          <ScalarProperty Name="商品標籤" ColumnName="商品標籤" />
+          <ScalarProperty Name="商品售價" ColumnName="商品售價" />
+          <ScalarProperty Name="商品名稱" ColumnName="商品名稱" />
+          <ScalarProperty Name="商品類別" ColumnName="商品類別" />
+          <ScalarProperty Name="商品圖片" ColumnName="商品圖片" />
+          <ScalarProperty Name="廠商名稱" ColumnName="廠商名稱" />
+          <ScalarProperty Name="商品連結" ColumnName="商品連結" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="商品推薦表">
+      <EntityTypeMapping TypeName="DatabaseWSModel.商品推薦表">
+        <MappingFragment StoreEntitySet="商品推薦表">
+          <ScalarProperty Name="商品標籤" ColumnName="商品標籤" />
+          <ScalarProperty Name="商品推薦" ColumnName="商品推薦" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="貼文">
+      <EntityTypeMapping TypeName="DatabaseWSModel.貼文">
+        <MappingFragment StoreEntitySet="貼文">
+          <ScalarProperty Name="貼文編號" ColumnName="貼文編號" />
+          <ScalarProperty Name="會員帳號" ColumnName="會員帳號" />
+          <ScalarProperty Name="貼文照片" ColumnName="貼文照片" />
+          <ScalarProperty Name="貼文文字" ColumnName="貼文文字" />
+          <ScalarProperty Name="編輯日期" ColumnName="編輯日期" />
+          <ScalarProperty Name="商品標籤" ColumnName="商品標籤" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="會員">
+      <EntityTypeMapping TypeName="DatabaseWSModel.會員">
+        <MappingFragment StoreEntitySet="會員">
+          <ScalarProperty Name="會員帳號" ColumnName="會員帳號" />
+          <ScalarProperty Name="性別" ColumnName="性別" />
+          <ScalarProperty Name="用戶名" ColumnName="用戶名" />
+          <ScalarProperty Name="個人頭貼" ColumnName="個人頭貼" />
+          <ScalarProperty Name="會員密碼" ColumnName="會員密碼" />
+          <ScalarProperty Name="生日" ColumnName="生日" />
+          <ScalarProperty Name="居住地區" ColumnName="居住地區" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="管理員">
+      <EntityTypeMapping TypeName="DatabaseWSModel.管理員">
+        <MappingFragment StoreEntitySet="管理員">
+          <ScalarProperty Name="管理員編號" ColumnName="管理員編號" />
+          <ScalarProperty Name="管理員帳號" ColumnName="管理員帳號" />
+          <ScalarProperty Name="管理員密碼" ColumnName="管理員密碼" />
+          <ScalarProperty Name="管理員Email" ColumnName="管理員Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hashtag">
+      <EntityTypeMapping TypeName="DatabaseWSModel.Hashtag">
+        <MappingFragment StoreEntitySet="Hashtag">
+          <ScalarProperty Name="貼文編號" ColumnName="貼文編號" />
+          <ScalarProperty Name="Hashtag名稱" ColumnName="Hashtag名稱" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="系統回報資料">
+      <EntityTypeMapping TypeName="DatabaseWSModel.系統回報資料">
+        <MappingFragment StoreEntitySet="系統回報資料">
+          <ScalarProperty Name="會員帳號" ColumnName="會員帳號" />
+          <ScalarProperty Name="回報內容" ColumnName="回報內容" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="身分驗證資料">
+      <EntityTypeMapping TypeName="DatabaseWSModel.身分驗證資料">
+        <MappingFragment StoreEntitySet="身分驗證資料">
+          <ScalarProperty Name="會員帳號" ColumnName="會員帳號" />
+          <ScalarProperty Name="手機號碼" ColumnName="手機號碼" />
+          <ScalarProperty Name="會員Email" ColumnName="會員Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="穿搭資料">
+      <EntityTypeMapping TypeName="DatabaseWSModel.穿搭資料">
+        <MappingFragment StoreEntitySet="穿搭資料">
+          <ScalarProperty Name="會員帳號" ColumnName="會員帳號" />
+          <ScalarProperty Name="穿搭風格" ColumnName="穿搭風格" />
+          <ScalarProperty Name="穿搭服飾" ColumnName="穿搭服飾" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="虛擬人像">
+      <EntityTypeMapping TypeName="DatabaseWSModel.虛擬人像">
+        <MappingFragment StoreEntitySet="虛擬人像">
+          <ScalarProperty Name="會員帳號" ColumnName="會員帳號" />
+          <ScalarProperty Name="夏天體質" ColumnName="夏天體質" />
+          <ScalarProperty Name="冬天體質" ColumnName="冬天體質" />
+          <ScalarProperty Name="固定文字提醒" ColumnName="固定文字提醒" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

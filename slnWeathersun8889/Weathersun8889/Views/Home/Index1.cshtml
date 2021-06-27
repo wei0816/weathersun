@@ -1,0 +1,181 @@
+﻿@model IEnumerable<Weathersun8889.會員>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script>
+    $(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+@{ ViewBag.Title = "會員管理平台"; }
+
+
+<div class="col-md-12">
+    <h2>&nbsp;</h2>
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <table id="myTable" class="display">
+                        <thead>
+                            <tr style="background-color:#f0f8ff;">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.會員帳號)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.性別)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.用戶名)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.個人頭貼)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.會員密碼)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.生日)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.居住地區)
+                                </th>
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.會員帳號)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.性別)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.用戶名)
+                                    </td>
+                                    <td>
+                                        <img src="~/propics/@item.個人頭貼" width="50" height="50" />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.會員密碼)
+                                    </td>
+                                    <td>
+                                        @DateTime.Parse(item.生日.ToString()).ToShortDateString()
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.居住地區)
+                                    </td>
+                                    <td>
+
+                                        @Html.ActionLink("📃", "Edit", new { account = item.會員帳號 })
+
+                                        @Html.ActionLink("❌", "Delete", new { account = item.會員帳號 },
+                                        new { onclick = "return confirm('確定刪除嗎?');" })
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+        <div class="logo">
+            <a class="simple-text logo-mini">
+                <div class="logo-image-small">
+                    <img src="~/img/logo-sun.png">
+                </div>
+                <!-- <p>CT</p> -->
+            </a>
+            <a class="simple-text logo-normal">
+                <strong>
+                    晴穿搭
+                    <!-- <div class="logo-image-big">
+                                   <img src="~/img/logo-big.png">
+                    </div> -->
+                </strong>
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav navbar-nav">
+                <li class="active ">
+                    <a href="Index1">
+
+                        <h5><strong>👦🏻 會員管理平台</strong></h5>
+                    </a>
+                </li>
+                <li>
+                    <a href="manager">
+
+                        <h6>👩‍🔧 管理員平台</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="announcement">
+
+                        <h6>📜 公告事項</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="system">
+
+                        <h6>📰 系統回報資料</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="identity">
+
+                        <h6>👥 身分驗證資料</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="products">
+
+                        <h6>👕 商品</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="proreclist">
+
+                        <h6>🛍 商品推薦表</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="peoplehead">
+
+                        <h6>🧍‍ 虛擬人像</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="douctment">
+
+                        <h6>📱 貼文管理</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="clothes">
+
+                        <h6>👗 穿搭資料</h6>
+                    </a>
+                </li>
+                <li class="active-pro">
+
+                    <p>&nbsp;&nbsp;&copy;@DateTime.Now.Year - 晴穿搭</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseWSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="公告事項">
+    <Key>
+      <PropertyRef Name="會員帳號" />
+    </Key>
+    <Property Name="會員帳號" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="系統公告" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="系統回報資料">
+    <Key>
+      <PropertyRef Name="會員帳號" />
+    </Key>
+    <Property Name="會員帳號" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="回報內容" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="身分驗證資料">
+    <Key>
+      <PropertyRef Name="會員帳號" />
+    </Key>
+    <Property Name="會員帳號" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="手機號碼" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="會員Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="穿搭資料">
+    <Key>
+      <PropertyRef Name="會員帳號" />
+    </Key>
+    <Property Name="會員帳號" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="穿搭風格" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="穿搭服飾" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="商品">
+    <Key>
+      <PropertyRef Name="商品標籤" />
+    </Key>
+    <Property Name="商品標籤" Type="Int32" Nullable="false" />
+    <Property Name="商品售價" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="商品名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="商品類別" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="商品圖片" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="廠商名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="商品連結" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="商品推薦表">
+    <Key>
+      <PropertyRef Name="商品標籤" />
+    </Key>
+    <Property Name="商品標籤" Type="Int32" Nullable="false" />
+    <Property Name="商品推薦" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="虛擬人像">
+    <Key>
+      <PropertyRef Name="會員帳號" />
+    </Key>
+    <Property Name="會員帳號" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="夏天體質" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="冬天體質" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="固定文字提醒" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="貼文">
+    <Key>
+      <PropertyRef Name="貼文編號" />
+    </Key>
+    <Property Name="貼文編號" Type="Int32" Nullable="false" />
+    <Property Name="會員帳號" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="貼文照片" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="貼文文字" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="編輯日期" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Hashtag" Relationship="Self.FK__Hashtag__貼文編號__47DBAE45" FromRole="貼文" ToRole="Hashtag" />
+  </EntityType>
+  <EntityType Name="會員">
+    <Key>
+      <PropertyRef Name="會員帳號" />
+    </Key>
+    <Property Name="會員帳號" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="性別" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="用戶名" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="個人頭貼" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="會員密碼" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="生日" Type="DateTime" Precision="0" />
+    <Property Name="居住地區" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="管理員">
+    <Key>
+      <PropertyRef Name="管理員編號" />
+    </Key>
+    <Property Name="管理員編號" Type="Int32" Nullable="false" />
+    <Property Name="管理員帳號" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="管理員密碼" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="管理員Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hashtag">
+    <Key>
+      <PropertyRef Name="貼文編號" />
+      <PropertyRef Name="Hashtag名稱" />
+    </Key>
+    <Property Name="貼文編號" Type="Int32" Nullable="false" />
+    <Property Name="Hashtag名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="貼文" Relationship="Self.FK__Hashtag__貼文編號__47DBAE45" FromRole="Hashtag" ToRole="貼文" />
+  </EntityType>
+  <Association Name="FK__Hashtag__貼文編號__47DBAE45">
+    <End Role="貼文" Type="Self.貼文" Multiplicity="1" />
+    <End Role="Hashtag" Type="Self.Hashtag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="貼文">
+        <PropertyRef Name="貼文編號" />
+      </Principal>
+      <Dependent Role="Hashtag">
+        <PropertyRef Name="貼文編號" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseWSEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="公告事項" EntityType="Self.公告事項" />
+    <EntitySet Name="系統回報資料" EntityType="Self.系統回報資料" />
+    <EntitySet Name="身分驗證資料" EntityType="Self.身分驗證資料" />
+    <EntitySet Name="穿搭資料" EntityType="Self.穿搭資料" />
+    <EntitySet Name="商品" EntityType="Self.商品" />
+    <EntitySet Name="商品推薦表" EntityType="Self.商品推薦表" />
+    <EntitySet Name="虛擬人像" EntityType="Self.虛擬人像" />
+    <EntitySet Name="貼文" EntityType="Self.貼文" />
+    <EntitySet Name="會員" EntityType="Self.會員" />
+    <EntitySet Name="管理員" EntityType="Self.管理員" />
+    <EntitySet Name="Hashtag" EntityType="Self.Hashtag" />
+    <AssociationSet Name="FK__Hashtag__貼文編號__47DBAE45" Association="Self.FK__Hashtag__貼文編號__47DBAE45">
+      <End Role="貼文" EntitySet="貼文" />
+      <End Role="Hashtag" EntitySet="Hashtag" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

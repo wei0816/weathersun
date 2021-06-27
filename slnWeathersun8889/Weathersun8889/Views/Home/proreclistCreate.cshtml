@@ -1,0 +1,40 @@
+﻿@model Weathersun8889.商品推薦表
+
+
+
+<h2>商品推薦表</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.商品標籤, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.商品標籤, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.商品標籤, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.商品推薦, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.商品推薦, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.商品推薦, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="新增" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("返回商品推薦表", "proreclist")
+</div>

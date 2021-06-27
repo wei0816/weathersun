@@ -1,0 +1,59 @@
+﻿@model Weathersun8889.貼文
+
+<h3>您確定要刪除嗎?</h3>
+<div>
+    <h4>貼文</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.貼文照片)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.貼文照片)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.貼文文字)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.貼文文字)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.編輯日期)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.編輯日期)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.商品.商品名稱)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.商品.商品名稱)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.會員.性別)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.會員.性別)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "douctment")
+        </div>
+    }
+</div>

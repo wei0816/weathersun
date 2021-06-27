@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Weathersun8889.會員>
+
+@{
+    ViewBag.Title = "會員登入";
+}
+<div class="col-md-12">
+    <h2>&nbsp;</h2>
+</div>
+<div class="content">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header">
+                    <h2>會員登入</h2>
+
+                    <form action="@Url.Action("Index")" method="post">
+                        <div class="form-group">
+                            <p><label for="exampleInputEmail1">帳號</label></p>
+                            <p><input type="text" class="form-control" id="loginName" name="loginName" placeholder="輸入帳號" value="" ,required="required"></p>
+                        </div>
+                        <div class="form-group">
+                            <p><label for="exampleInputPassword1">密碼</label></p>
+                            <p><input type="password" class="form-control" id="loginPwd" name="loginPwd" placeholder="輸入密碼" value="" ,required="required"></p>
+                        </div>
+                        <div>
+                            <p><button type="submit" class="btn btn-primary">登入</button></p>
+                        </div>
+                        <div>
+                            <span style="color:red">@ViewBag.Message</span>
+                        </div>
+                        <p>@Html.ActionLink("註冊", "Create")</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+        <div class="logo">
+            <a class="simple-text logo-mini">
+                <div class="logo-image-small">
+                    <img src="~/img/logo-sun.png">
+                </div>
+                <!-- <p>CT</p> -->
+            </a>
+            <a class="simple-text logo-normal">
+                <strong>
+                    晴穿搭
+                    <!-- <div class="logo-image-big">
+                           <img src="~/img/logo-big.png">
+            </div> -->
+                </strong>
+            </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+            <ul class="nav navbar-nav">
+                <li>
+
+                    <i class="glyphicon glyphicon-user"></i>
+                    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;請先登入😆</h5>
+                    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;才能使用這邊功能喔</h5>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
