@@ -231,8 +231,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Index1.cshtml" />
     <Content Include="Views\Home\Index2.cshtml" />
@@ -273,6 +271,7 @@
     <Folder Include="Models\" />
     <Folder Include="postpics\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Views\Shared\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
