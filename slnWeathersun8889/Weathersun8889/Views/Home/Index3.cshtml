@@ -1,73 +1,63 @@
 ﻿@model IEnumerable<Weathersun8889.管理員>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -晴穿搭</title>
+    <link rel="sun-touch-icon" sizes="76x76" href="~/img/sun-icon.png">
+    <link rel="icon" type="image/png" href="~/img/weathersun.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        晴穿搭
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="~/Content/demo/demo.css" rel="stylesheet" />
+</head>
 
 @{
     ViewBag.Title = "管理員登入";
 }
 
-<div class="col-md-12">
-    <h2>&nbsp;</h2>
-</div>
-<div class="content">
-    <div class="row justify-content-center">
-        <div class="col-md-7">
-            <div class="card">
-                <div class="card-header">
-                    <h2>管理員登入</h2>
-                    <form action="@Url.Action("Index3")" method="post">
-                        <div class="form-group">
-                            <p><label for="exampleInputEmail1">帳號</label></p>
-                            <p><input type="text" class="form-control" id="管理員帳號" name="loginName" placeholder="輸入帳號" value="" ,required="required"></p>
-                        </div>
-                        <div class="form-group">
-                            <p><label for="exampleInputPassword1">密碼</label></p>
-                            <p><input type="password" class="form-control" id="管理員密碼" name="loginPwd" placeholder="輸入密碼" value="" ,required="required"></p>
-                        </div>
-                        <div>
-                            <p><button type="submit" class="btn btn-primary btn - round">登入</button></p>
-                        </div>
-                        <div>
-                            <span style="color:red">@ViewBag.Message</span>
-                        </div>
-                        <p>&nbsp;</p>
-                    </form>
+<body background="~/img/website.jpg" >
+    <div class="col-md-12">
+        <h2>&nbsp;</h2>
+        <h2>&nbsp;</h2>
+        <h2>&nbsp;</h2>
+    </div>
+    <div class="content">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>管理員登入</h2>
+                        <form action="@Url.Action("Index3")" method="post">
+                            <div class="form-group">
+                                <p><label for="exampleInputEmail1">帳號</label></p>
+                                <p><input type="text" class="form-control" id="管理員帳號" name="loginName" placeholder="輸入帳號" value="" ,required="required"></p>
+                            </div>
+                            <div class="form-group">
+                                <p><label for="exampleInputPassword1">密碼</label></p>
+                                <p><input type="password" class="form-control" id="管理員密碼" name="loginPwd" placeholder="輸入密碼" value="" ,required="required"></p>
+                            </div>
+                            <div>
+                                <p><button type="submit" class="btn btn-primary btn - round">登入</button></p>
+                            </div>
+                            <div>
+                                <span style="color:red">@ViewBag.Message</span>
+                            </div>
+                            <p>@Html.ActionLink("返回主畫面", "Index2")</p>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="wrapper ">
-    <div class="sidebar" data-color="white" data-active-color="danger">
-        <div class="logo">
-            <a class="simple-text logo-mini">
-                <div class="logo-image-small">
-                    <img src="~/img/logo-sun.png">
-                </div>
-                <!-- <p>CT</p> -->
-            </a>
-            <a class="simple-text logo-normal">
-                <strong>
-                    晴穿搭
-                    <!-- <div class="logo-image-big">
-                           <img src="~/img/logo-big.png">
-            </div> -->
-                </strong>
-            </a>
-        </div>
-
-        <div class="sidebar-wrapper">
-            <ul class="nav navbar-nav">
-                <li>
-
-                    <i class="glyphicon glyphicon-user"></i>
-                    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;請先登入😆</h5>
-                    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;才能使用這邊功能喔</h5>
-                </li>
-
-
-            </ul>
-        </div>
-    </div>
-</div>
-
+</body>
 
 
