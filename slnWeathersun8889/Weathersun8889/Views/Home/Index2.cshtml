@@ -25,6 +25,7 @@
 </head>
 
 <body id="page-top">
+    <div class="wrapper">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <img width="50" src="~/img/logo-sun.png">
@@ -141,64 +142,62 @@
                     <h2 class="page-section-heading  text-uppercase " style="color:grey"><strong>打造屬於你的穿搭世界!</strong></h2>
                     <!-- Icon Divider-->
                 </div>
-                    <!-- About Section Content-->
+                <!-- About Section Content-->
                 <div class="row">
-                    <div class=" col-lg-4 ms-auto" style="color:darkgray"><h5 style="font-family:圓體字體" ><strong>依照你喜愛的風格，量身訂做屬於你的穿搭，
-                        與好友們分享你的搭配，一起成為穿搭的流行趨勢吧!</strong></h5></div>
+                    <div class=" col-lg-4 ms-auto" style="color:darkgray">
+                        <h5 style="font-family:圓體字體">
+                            <strong>
+                                依照你喜愛的風格，量身訂做屬於你的穿搭，
+                                與好友們分享你的搭配，一起成為穿搭的流行趨勢吧!
+                            </strong>
+                        </h5>
+                    </div>
                     <img class="img-fluid style=" text-align:right;"" src="~/img/028-Millennials.png" width="300">
-                    <div class=" col-lg-4 ms-auto" style="color:darkgray"><h5 style="font-family:圓體字體"><strong>透過數據分析，讓每個人都能夠克服溫差及
-                        地點的不同，做出最佳的穿衣選擇，快來加入我們!</strong></h5></div>
+                    <div class=" col-lg-4 ms-auto" style="color:darkgray">
+                        <h5 style="font-family:圓體字體">
+                            <strong>
+                                透過數據分析，讓每個人都能夠克服溫差及
+                                地點的不同，做出最佳的穿衣選擇，快來加入我們!
+                            </strong>
+                        </h5>
+                    </div>
 
                     <!-- About Section Button-->
                 </div>
-                </div>
+            </div>
         </section>
         <!-- Contact Section-->
         <h6>&nbsp;</h6>
         <section class="page-section" id="contact">
             <div class="container">
                 <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">意見回饋</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="color:gray"><strong>意見回饋</strong></h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Contact Section Form-->
                 <div class="row justify-content-center">
-                    <div class="col-lg-8 col-xl-7">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Full name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
+                    <div class="col-lg-8 col-xl-7">                  
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">                   
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
+                                <label for="email">Email </label>
                                 <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email address</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
+                                <label for="phone">電話</label>
+                                <input class="form-control" id="phone" type="tel" placeholder="09XXXXXXXX" data-sb-validations="required" />
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
+                                <label for="message">意見</label>
                                 <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Message</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                             </div>
                             <!-- Submit success message-->
@@ -225,39 +224,38 @@
                 </div>
             </div>
         </section>
-        <!-- Footer-->
-        <footer class="footer text-center">
+        <h6>&nbsp;</h6>
+
+        <footer class="footer text-center" style="background-image: linear-gradient(to bottom, #fefedf, #fefbdb, #fef9d7, #fef6d3, #fef3cf, #fef1cc, #fef0c9, #feeec6, #feeec3, #ffedc1, #ffedbe, #ffecbb);">
             <div class="container">
                 <div class="row">
                     <!-- Footer Location-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">管理員</h4>
-                        <p class="lead mb-0">
-                            由此進入
-                            <br />
+                        <h4 class="text-uppercase mb-4" style="color:gray"><strong>管理員</strong></h4>
+                        <p >
                             <a class="btn btn-outline-light btn-social mx-1" href="Index3"><i class="fa fa-user-circle"></i></a>
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
+                        <h4 class="text-uppercase mb-4" style="color:gray"><strong>了解我們</strong></h4>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-instagram"></i></a>
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
-                        <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
+                        <h4 class="text-uppercase mb-4" style="color:gray"><strong>常見問題</strong></h4>
+                        <p class="lead mb-0" style="color:gray">
+                            還在研發中...                 
                         </p>
+
                     </div>
                 </div>
             </div>
+            <hr />
+            <p>&copy; @DateTime.Now.Year - 晴穿搭</p>
         </footer>
+    </div>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
             <div class="container"><small>Copyright &copy; Your Website 2021</small></div>
@@ -281,7 +279,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="~/img/178-Artificial-Intelligence.png" alt="..." width="300"/>
+                                    <img class="img-fluid rounded mb-5" src="~/img/178-Artificial-Intelligence.png" alt="..." width="300" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <div>Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
@@ -314,7 +312,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="~/img/189-Model-Fashion.png" alt="..." width="300"/>
+                                    <img class="img-fluid rounded mb-5" src="~/img/189-Model-Fashion.png" alt="..." width="300" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
@@ -347,7 +345,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="~/img/61-Online-Shopping.png" alt="..." width="300"/>
+                                    <img class="img-fluid rounded mb-5" src="~/img/61-Online-Shopping.png" alt="..." width="300" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
@@ -380,7 +378,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="~/img/111-Social-Media-Promotion.png" alt="..." width="300"/>
+                                    <img class="img-fluid rounded mb-5" src="~/img/111-Social-Media-Promotion.png" alt="..." width="300" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
@@ -409,5 +407,4 @@
             });
         </script>
 </body>
-
 </html>
