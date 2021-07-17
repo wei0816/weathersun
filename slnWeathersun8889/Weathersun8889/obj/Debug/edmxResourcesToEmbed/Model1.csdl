@@ -84,6 +84,15 @@
     <Property Name="管理員Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="公告事項" Relationship="Self.FK__公告事項__管理員編號__53D770D6" FromRole="管理員" ToRole="公告事項" />
   </EntityType>
+  <EntityType Name="網頁意見回饋資料表">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="手機號碼" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="意見回饋" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
   <EntityType Name="Hashtag">
     <Key>
       <PropertyRef Name="貼文編號" />
@@ -245,7 +254,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DatabaseWSEntities20" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DatabaseWSEntities24" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="公告事項" EntityType="Self.公告事項" />
     <EntitySet Name="身分驗證資料" EntityType="Self.身分驗證資料" />
     <EntitySet Name="商品" EntityType="Self.商品" />
@@ -253,6 +262,7 @@
     <EntitySet Name="貼文" EntityType="Self.貼文" />
     <EntitySet Name="會員" EntityType="Self.會員" />
     <EntitySet Name="管理員" EntityType="Self.管理員" />
+    <EntitySet Name="網頁意見回饋資料表" EntityType="Self.網頁意見回饋資料表" />
     <EntitySet Name="Hashtag" EntityType="Self.Hashtag" />
     <EntitySet Name="系統回報資料" EntityType="Self.系統回報資料" />
     <EntitySet Name="穿搭資料" EntityType="Self.穿搭資料" />

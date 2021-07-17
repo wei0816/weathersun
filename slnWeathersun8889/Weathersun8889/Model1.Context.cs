@@ -13,10 +13,10 @@ namespace Weathersun8889
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DatabaseWSEntities20 : DbContext
+    public partial class DatabaseWSEntities24 : DbContext
     {
-        public DatabaseWSEntities20()
-            : base("name=DatabaseWSEntities20")
+        public DatabaseWSEntities24()
+            : base("name=DatabaseWSEntities24")
         {
         }
     
@@ -32,6 +32,7 @@ namespace Weathersun8889
         public virtual DbSet<貼文> 貼文 { get; set; }
         public virtual DbSet<會員> 會員 { get; set; }
         public virtual DbSet<管理員> 管理員 { get; set; }
+        public virtual DbSet<網頁意見回饋資料表> 網頁意見回饋資料表 { get; set; }
         public virtual DbSet<Hashtag> Hashtag { get; set; }
         public virtual DbSet<系統回報資料> 系統回報資料 { get; set; }
         public virtual DbSet<穿搭資料> 穿搭資料 { get; set; }

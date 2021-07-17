@@ -10,7 +10,7 @@ namespace Weathersun8889.Controllers
 {
     public class HomeController : Controller
     {
-        DatabaseWSEntities20 db = new DatabaseWSEntities20();
+        DatabaseWSEntities24 db = new DatabaseWSEntities24();
 
         public ActionResult Index3()  //管理員登入
         {
@@ -70,11 +70,26 @@ namespace Weathersun8889.Controllers
             var man = db.管理員.ToList();
             return View(man);
         }
+        public ActionResult Advise()  //網頁意見回饋資料表
+        {
+            var adv = db.網頁意見回饋資料表.ToList();
+            return View(adv);
+        }
         public ActionResult Index2()  //歡迎來到晴穿搭
         {
             return View();
         }
-        
+        [HttpPost]
+        public ActionResult Index2(網頁意見回饋資料表 advise)
+        {
+            if (ModelState.IsValid)
+            {
+                db.網頁意見回饋資料表.Add(advise);
+                db.SaveChanges();
+                ViewBag.Msg = "您的意見回饋已寄出!🚀";
+            }
+            return View("Index2");
+        }
         [HttpPost]
         public ActionResult Index3(string loginName, string loginPwd)    //管理員登入
         {

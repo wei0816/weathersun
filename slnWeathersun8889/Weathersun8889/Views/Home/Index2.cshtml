@@ -1,8 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@model Weathersun8889.網頁意見回饋資料表
+@{
+    ViewBag.Title = "網頁意見回饋資料表";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>@ViewBag.Title -晴穿搭</title>
@@ -12,16 +16,13 @@
     <title>
         晴穿搭
     </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="css/styles.css" rel="stylesheet" /> 
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -37,13 +38,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">四大主題</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">六大主題</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">關於</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">意見回饋</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>  
+        </nav>
         <header class="masthead text-white text-center" style="background-image: linear-gradient(to bottom, #fefedf, #fcf7d2, #fcf0c5, #fce8b9, #fde0ad, #f4e0aa, #ebe0a9, #e1e0a8, #cce5b8, #bde8ca, #b7e9db, #bae8e8);">
             <div class="container d-flex align-items-center flex-column">
                 <h6>&nbsp;</h6>
@@ -61,37 +62,30 @@
                     <i class="fas fa-download me-2"></i>
                     Free Download!
                 </a>
+                <img class="masthead-avatar mb-5" src="~/img/qr.ioi.tw.png" alt="..." />
             </div>
         </header>
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
-               
                 <h6>&nbsp;</h6>
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="color:grey"><strong>四大主題</strong></h2>
-                <!-- Icon Divider-->
-
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-
-                    <div class="divider-custom-line"></div>
-                </div>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="color:grey"><strong>六大主題</strong></h2>
                 <!-- Portfolio Grid Items-->
-                <div class="row justify-content-start">
+                <div class="row justify-content-center">
                     <!-- Portfolio Item 1-->
-                    <div class="col-4 col-md-3 offset-md-3">
+                    <div class="col-md-6 col-lg-4 mb-5">
                         <div class="card" style="width: 17rem;" text-align="center">
                             <div class="card-header">
                                 <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">                                      
-                                          <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                                        </div>
-                                        <img class="img-fluid " src="~/img/178-Artificial-Intelligence.png">
+                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                                     </div>
+                                    <img class="img-fluid " src="~/img/178-Artificial-Intelligence.png">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
-                    <div class="col-4 col-lg-6 col-md-3 ">
+                    <div class="col-md-6 col-lg-4 mb-5">
                         <div class="card" style="width: 17rem;" text-align="center">
                             <div class="card-header">
                                 <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
@@ -105,10 +99,10 @@
                     </div>
                     <!-- Portfolio Item 3-->
                     <!-- Portfolio Item 4-->
-                    <div class="col-4 col-md-3 offset-md-3 ">
+                    <div class="col-md-6 col-lg-4 mb-5">
                         <div class="card" style="width: 17rem;" text-align="center">
                             <div class="card-header">
-                                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
                                     <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                         <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                                     </div>
@@ -117,15 +111,39 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-4 col-lg-5 col-md-5">
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="card" style="width: 17rem;" text-align="center">
+                            <div class="card-header">
+                                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div>
+                                    <img class="img-fluid" src="~/img/111-Social-Media-Promotion.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
                         <div class="card" style="width: 17rem;" text-align="center">
                             <div class="card-header">
                                 <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
                                     <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                         <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                                     </div>
-                                    <img class="img-fluid" src="~/img/111-Social-Media-Promotion.png">
+                                    <img class="img-fluid" src="~/img/198-Enjoying-Life.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 5-->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card" style="width: 17rem;" text-align="center">
+                            <div class="card-header">
+                                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div>
+                                    <img class="img-fluid" src="~/img/270-GPS.png">
                                 </div>
                             </div>
                         </div>
@@ -173,58 +191,58 @@
             <div class="container">
                 <!-- Contact Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="color:gray"><strong>意見回饋</strong></h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-line"></div>
+                <h6>&nbsp;</h6>
                 </div>
-                <!-- Contact Section Form-->
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-xl-7">
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Email address input-->
-                            <div class="form-floating mb-3">
-                                <label for="email">Email </label>
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <label for="phone">電話</label>
-                                <input class="form-control" id="phone" type="tel" placeholder="09XXXXXXXX" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <label for="message">意見</label>
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                <div class="content">
+                    <div class="row justify-content-center">
+                        <div class="col-md-5">
+                            <div class="card" style="background-color:#FFFFE8">
+                                <div class="card-header">
+                                    <p>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "email", type = "email", placeholder = "name@example.com", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                            </div>
+                                        </div>
+                                    </p>
+                                    <p>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.手機號碼, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.手機號碼, new { htmlAttributes = new { @class = "form-control", id = "phone", type = "tel", placeholder = "09XXXXXXXX", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.手機號碼, "", new { @class = "text-danger" })
+                                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                            </div>
+                                        </div>
+                                    </p>
+                                    <p>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.意見回饋, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.意見回饋, new { htmlAttributes = new { @class = "form-control", id = "message", type = "text", placeholder = "Enter your message here...", style = "height: 10rem", required = "required" } })
+                                                @Html.ValidationMessageFor(model => model.意見回饋, "", new { @class = "text-danger" })
+                                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                            </div>
+                                        </div>
+                                    </p>
+                                        <input class="btn btn-primary btn-xl" id="submitButton" value="submit" type="submit">
+                                        <div>
+                                            <span style="color:#5E5E5E"><strong>@ViewBag.Msg</strong></span>
+                                        </div>
                                 </div>
                             </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
-                        </form>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                   </div>
+                  }
+                    </section>
         <h6>&nbsp;</h6>
 
         <footer class="footer text-center" style="background-image: linear-gradient(to bottom, #fefedf, #fefbdb, #fef9d7, #fef6d3, #fef3cf, #fef1cc, #fef0c9, #feeec6, #feeec3, #ffedc1, #ffedbe, #ffecbb);">
@@ -257,156 +275,215 @@
             <p>&copy; @DateTime.Now.Year - 晴穿搭 <img width="70" src="~/img/logo-sun.PNG"></p>
         </footer>
     </div>
-        <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2021</small></div>
-        </div>
-        <!-- Portfolio Modals-->
-        <!-- Portfolio Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">虛擬人像</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="~/img/178-Artificial-Intelligence.png" alt="..." width="300" />
-                                    <!-- Portfolio Modal - Text-->
-                                    <h5 class="mb-4">利用模擬人物來創造屬於自己的虛擬人像!會員可以替自己的模擬人物作穿搭，我們提供一個完整的服飾、髮飾、人物表情、鞋款等的資料庫，讓你在虛擬的世界隨時隨地搭配出你喜愛的風格!</h5>
-                                    
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+    <!-- Copyright Section-->
+    <div class="copyright py-4 text-center text-white">
+        <div class="container"><small>Copyright &copy; Your Website 2021</small></div>
+    </div>
+    <!-- Portfolio Modals-->
+    <!-- Portfolio Modal 1-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">虛擬人像</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="~/img/178-Artificial-Intelligence.png" alt="..." width="300" />
+                                <!-- Portfolio Modal - Text-->
+                                <h5 class="mb-4">利用模擬人物來創造屬於自己的虛擬人像!會員可以替自己的模擬人物作穿搭，我們提供一個完整的服飾、髮飾、人物表情、鞋款等的資料庫，以及搭配個人體質詢問，在不同的氣候下提供貼心的提醒，讓你在虛擬的世界隨時隨地搭配出你喜愛的風格!</h5>
+                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 2-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">穿搭</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="~/img/189-Model-Fashion.png" alt="..." width="300" />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+    </div>
+    <!-- Portfolio Modal 2-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">穿搭</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="~/img/189-Model-Fashion.png" alt="..." width="300" />
+                                <!-- Portfolio Modal - Text-->
+                                <h5 class="mb-4">穿搭可以說是現代人必要的元素，能夠帶給人們好的印象，使用者們可以透過我們來學習如何穿搭，與app上的人一起互動分享，激發你的穿搭靈感!</h5>
+                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 4-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">商城</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="~/img/61-Online-Shopping.png" alt="..." width="300" />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+    </div>
+    <!-- Portfolio Modal 4-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">商城</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="~/img/61-Online-Shopping.png" alt="..." width="300" />
+                                <!-- Portfolio Modal - Text-->
+                                <h5 class="mb-4">我們的商城不提供買賣交易服務，但可以在這個商城頁面即時的找到自己想要的服飾，可以根據你喜歡的風格，來整理出你可能有興趣的商家，如果想要下單購買，可以透過連結到商家商品頁面做下單。</h5>
+                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 5-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">貼文</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="~/img/111-Social-Media-Promotion.png" alt="..." width="300" />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+    </div>
+    <!-- Portfolio Modal 5-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">貼文</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="~/img/111-Social-Media-Promotion.png" alt="..." width="300" />
+                                <!-- Portfolio Modal - Text-->
+                                <h5 class="mb-4">會員可以將自己穿搭的成品發文分享，並且可以製作自己的hashtag，將自己的風格做出一個特色標籤，在這個穿搭社群上結交志同道合的好友吧!</h5>
+                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-        <script src="~/Scripts/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-        <script>
-            $(document).ready(function () {
-                // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-                demo.initChartsPages();
-            });
-        </script>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">天氣資訊</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="~/img/198-Enjoying-Life.png" alt="..." width="300" />
+                                <!-- Portfolio Modal - Text-->
+                                <h5 class="mb-4">我們提供中央氣象天氣資訊，讓你避免因為天氣因素而造成不適合的穿搭，系統也會依照天氣來提醒你適合的搭配。</h5>
+                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">地點</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="~/img/270-GPS.png" alt="..." width="300" />
+                                <!-- Portfolio Modal - Text-->
+                                <h5 class="mb-4">你是否有過因為地點的不同而有穿錯衣服的困擾呢?app還提供可以輸入「現在地點」及「目的地地點」來幫使用者估算溫差和提供穿搭建議，讓你能夠減少穿錯衣服的困擾或是旅行不知道該怎麼帶衣服的問題。</h5>
+                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+                                <script src="js/scripts.js"></script>
+                                <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+                                <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+                                <script src="~/Scripts/bootstrap.min.js"></script>
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                                <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+                                <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+                                <script>
+                                            $(document).ready(function () {
+                                                // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+                                                demo.initChartsPages();
+                                            });
+                                </script>
 </body>
 </html>
 

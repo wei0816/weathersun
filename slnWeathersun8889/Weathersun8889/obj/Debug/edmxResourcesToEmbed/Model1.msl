@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DatabaseWSModelStoreContainer" CdmEntityContainer="DatabaseWSEntities20">
+  <EntityContainerMapping StorageEntityContainer="DatabaseWSModelStoreContainer" CdmEntityContainer="DatabaseWSEntities24">
     <EntitySetMapping Name="公告事項">
       <EntityTypeMapping TypeName="DatabaseWSModel.公告事項">
         <MappingFragment StoreEntitySet="公告事項">
@@ -73,6 +73,16 @@
           <ScalarProperty Name="管理員帳號" ColumnName="管理員帳號" />
           <ScalarProperty Name="管理員密碼" ColumnName="管理員密碼" />
           <ScalarProperty Name="管理員Email" ColumnName="管理員Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="網頁意見回饋資料表">
+      <EntityTypeMapping TypeName="DatabaseWSModel.網頁意見回饋資料表">
+        <MappingFragment StoreEntitySet="網頁意見回饋資料表">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="手機號碼" ColumnName="手機號碼" />
+          <ScalarProperty Name="意見回饋" ColumnName="意見回饋" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

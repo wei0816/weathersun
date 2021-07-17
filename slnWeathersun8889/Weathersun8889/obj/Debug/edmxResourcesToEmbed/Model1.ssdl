@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DatabaseWSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\USERS\WEI\DESKTOP\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.Hashtag' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.Hashtag' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
   <EntityType Name="Hashtag">
     <Key>
       <PropertyRef Name="貼文編號" />
@@ -19,7 +19,7 @@
     <Property Name="系統公告" Type="nvarchar(max)" />
   </EntityType>
   <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\USERS\WEI\DESKTOP\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.系統回報資料' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.系統回報資料' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
   <EntityType Name="系統回報資料">
     <Key>
       <PropertyRef Name="會員帳號" />
@@ -37,7 +37,7 @@
     <Property Name="會員Email" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\USERS\WEI\DESKTOP\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.穿搭資料' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.穿搭資料' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
   <EntityType Name="穿搭資料">
     <Key>
       <PropertyRef Name="會員帳號" />
@@ -69,7 +69,7 @@
     <Property Name="商品推薦" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\USERS\WEI\DESKTOP\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.虛擬人像' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.虛擬人像' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
   <EntityType Name="虛擬人像">
     <Key>
       <PropertyRef Name="會員帳號" />
@@ -112,6 +112,15 @@
     <Property Name="管理員帳號" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="管理員密碼" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="管理員Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="網頁意見回饋資料表">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="手機號碼" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="意見回饋" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="FK__Hashtag__貼文編號__4959E263">
     <End Role="貼文" Type="Self.貼文" Multiplicity="1" />
@@ -241,6 +250,7 @@
     <EntitySet Name="貼文" EntityType="Self.貼文" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="會員" EntityType="Self.會員" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="管理員" EntityType="Self.管理員" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="網頁意見回饋資料表" EntityType="Self.網頁意見回饋資料表" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Hashtag" EntityType="Self.Hashtag" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Hashtag].[貼文編號] AS [貼文編號], 

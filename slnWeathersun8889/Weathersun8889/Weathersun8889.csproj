@@ -215,6 +215,9 @@
     <Compile Include="系統回報資料.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="網頁意見回饋資料表.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="虛擬人像.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -260,6 +263,7 @@
     <Content Include="Views\Home\proreclistCreate.cshtml" />
     <Content Include="Views\Home\postedit.cshtml" />
     <Content Include="Views\Home\postDelete.cshtml" />
+    <Content Include="Views\Home\Advise.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -6,7 +6,7 @@
     <edmx:StorageModels>
       <Schema Namespace="DatabaseWSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\USERS\WEI\DESKTOP\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.Hashtag' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.Hashtag' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="Hashtag">
           <Key>
             <PropertyRef Name="貼文編號" />
@@ -24,7 +24,7 @@
           <Property Name="系統公告" Type="nvarchar(max)" />
         </EntityType>
         <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\USERS\WEI\DESKTOP\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.系統回報資料' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.系統回報資料' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="系統回報資料">
           <Key>
             <PropertyRef Name="會員帳號" />
@@ -42,7 +42,7 @@
           <Property Name="會員Email" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\USERS\WEI\DESKTOP\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.穿搭資料' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.穿搭資料' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="穿搭資料">
           <Key>
             <PropertyRef Name="會員帳號" />
@@ -74,7 +74,7 @@
           <Property Name="商品推薦" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\USERS\WEI\DESKTOP\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.虛擬人像' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.虛擬人像' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="虛擬人像">
           <Key>
             <PropertyRef Name="會員帳號" />
@@ -117,6 +117,15 @@
           <Property Name="管理員帳號" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="管理員密碼" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="管理員Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="網頁意見回饋資料表">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="手機號碼" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="意見回饋" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <Association Name="FK__Hashtag__貼文編號__4959E263">
           <End Role="貼文" Type="Self.貼文" Multiplicity="1" />
@@ -246,6 +255,7 @@
           <EntitySet Name="貼文" EntityType="Self.貼文" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="會員" EntityType="Self.會員" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="管理員" EntityType="Self.管理員" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="網頁意見回饋資料表" EntityType="Self.網頁意見回饋資料表" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hashtag" EntityType="Self.Hashtag" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Hashtag].[貼文編號] AS [貼文編號], 
@@ -402,6 +412,15 @@
           <Property Name="管理員密碼" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="管理員Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="公告事項" Relationship="Self.FK__公告事項__管理員編號__53D770D6" FromRole="管理員" ToRole="公告事項" />
+        </EntityType>
+        <EntityType Name="網頁意見回饋資料表">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="手機號碼" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="意見回饋" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Hashtag">
           <Key>
@@ -564,7 +583,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DatabaseWSEntities20" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DatabaseWSEntities24" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="公告事項" EntityType="Self.公告事項" />
           <EntitySet Name="身分驗證資料" EntityType="Self.身分驗證資料" />
           <EntitySet Name="商品" EntityType="Self.商品" />
@@ -572,6 +591,7 @@
           <EntitySet Name="貼文" EntityType="Self.貼文" />
           <EntitySet Name="會員" EntityType="Self.會員" />
           <EntitySet Name="管理員" EntityType="Self.管理員" />
+          <EntitySet Name="網頁意見回饋資料表" EntityType="Self.網頁意見回饋資料表" />
           <EntitySet Name="Hashtag" EntityType="Self.Hashtag" />
           <EntitySet Name="系統回報資料" EntityType="Self.系統回報資料" />
           <EntitySet Name="穿搭資料" EntityType="Self.穿搭資料" />
@@ -622,7 +642,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DatabaseWSModelStoreContainer" CdmEntityContainer="DatabaseWSEntities20">
+        <EntityContainerMapping StorageEntityContainer="DatabaseWSModelStoreContainer" CdmEntityContainer="DatabaseWSEntities24">
           <EntitySetMapping Name="公告事項">
             <EntityTypeMapping TypeName="DatabaseWSModel.公告事項">
               <MappingFragment StoreEntitySet="公告事項">
@@ -695,6 +715,16 @@
                 <ScalarProperty Name="管理員帳號" ColumnName="管理員帳號" />
                 <ScalarProperty Name="管理員密碼" ColumnName="管理員密碼" />
                 <ScalarProperty Name="管理員Email" ColumnName="管理員Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="網頁意見回饋資料表">
+            <EntityTypeMapping TypeName="DatabaseWSModel.網頁意見回饋資料表">
+              <MappingFragment StoreEntitySet="網頁意見回饋資料表">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="手機號碼" ColumnName="手機號碼" />
+                <ScalarProperty Name="意見回饋" ColumnName="意見回饋" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
