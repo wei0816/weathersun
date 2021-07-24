@@ -96,6 +96,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="animation.css" />
     <Content Include="App_Data\DatabaseWS.mdf" />
     <Content Include="App_Data\DatabaseWS_log.ldf">
       <DependentUpon>DatabaseWS.mdf</DependentUpon>
@@ -167,6 +168,7 @@
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Properties\PublishProfiles\IISProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\IISProfile2.pubxml" />
+    <Content Include="Style1.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

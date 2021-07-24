@@ -1,6 +1,6 @@
 ﻿@model Weathersun8889.網頁意見回饋資料表
 @{
-    ViewBag.Title = "網頁意見回饋資料表";
+    ViewBag.Title = "晴穿搭";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +23,54 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="~/Style1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="~/animation.css">
+    <script>
+        function animateFrom(elem, direction) {
+            direction = direction || 1;
+            var x = 0,
+                y = direction * 100;
+            if (elem.classList.contains("gs_reveal_fromLeft")) {
+                x = -100;
+                y = 0;
+            } else if (elem.classList.contains("gs_reveal_fromRight")) {
+                x = 100;
+                y = 0;
+            }
+            elem.style.transform = "translate(" + x + "px, " + y + "px)";
+            elem.style.opacity = "0";
+            gsap.fromTo(elem, { x: x, y: y, autoAlpha: 0 }, {
+                duration: 1.25,
+                x: 0,
+                y: 0,
+                autoAlpha: 1,
+                ease: "expo",
+                overwrite: "auto"
+            });
+        }
+
+        function hide(elem) {
+            gsap.set(elem, { autoAlpha: 0 });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray(".gs_reveal").forEach(function (elem) {
+                hide(elem); // assure that the element is hidden when scrolled into view
+
+                ScrollTrigger.create({
+                    trigger: elem,
+                    onEnter: function () { animateFrom(elem) },
+                    onEnterBack: function () { animateFrom(elem, -1) },
+                    onLeave: function () { hide(elem) } // assure that the element is hidden when scrolled into view
+                });
+            });
+        });
+
+    </script>
 </head>
 
 <body id="page-top">
@@ -50,8 +98,9 @@
                 <h6>&nbsp;</h6>
                 <h1>&nbsp;</h1>
                 <img class="masthead-avatar mb-5" src="~/img/weather.gif" alt="..." />
-
-                <h1 class="masthead-heading text-uppercase mb-0 " style="color:grey"><strong>開始探索!</strong></h1>
+                <div class="typing-demo">
+                    <h5 class="masthead-heading text-uppercase mb-0 " style="color:grey"><strong>開始探索!</strong></h5>
+                </div>
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
@@ -65,85 +114,66 @@
                 <img class="masthead-avatar mb-5" src="~/img/qr.ioi.tw.png" alt="..." />
             </div>
         </header>
+
+        <h6>&nbsp;</h6>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="color:grey"><strong>六大主題</strong></h2>
+        <!-- Portfolio Grid Items-->
+        <h6>&nbsp;</h6>
         <section class="page-section portfolio" id="portfolio">
-            <div class="container">
-                <h6>&nbsp;</h6>
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="color:grey"><strong>六大主題</strong></h2>
-                <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="card" style="width: 17rem;" text-align="center">
-                            <div class="card-header">
-                                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                                    </div>
-                                    <img class="img-fluid " src="~/img/178-Artificial-Intelligence.png">
+            <div class="body">
+                <div class="img">
+                    <div class="features">
+                        <div class="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+                            <div class="featured-image-container ipsGrid_span5 gs_reveal gs_reveal_fromLeft">
+                                <img width="479" src="~/img/178-Artificial-Intelligence.PNG" alt="">
+                            </div>
+                            <div class="ipsGrid_span7 ipsType_left">
+                                <h2 class="heading_large gs_reveal" style="text-align:center; color:grey"><strong>虛擬人像</strong></h2>
+                                <h5 class="gs_reveal col-lg" style="text-align:center;">利用模擬人物來創造屬於自己的虛擬人像!會員可以替自己的模擬人物作穿搭，我們提供一個完整的服飾、髮飾、人物表情、鞋款等的資料庫，以及搭配個人體質詢問，在不同的氣候下提供貼心的提醒，讓你在虛擬的世界隨時隨地搭配出你喜愛的風格!</h5>
+                            </div>
+                            <div class="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+                                <div class="ipsGrid_span7 ipsType_right">
+                                    <h2 class="heading_large gs_reveal" style="text-align:center; color:grey"> <strong>穿搭</strong></h2>
+                                    <h5 class="gs_reveal col-lg" style="text-align:center;">穿搭可以說是現代人必要的元素，能夠帶給人們好的印象，使用者們可以透過我們來學習如何穿搭，與app上的人一起互動分享，激發你的穿搭靈感!</h5>
+                                </div>
+                                <div class="featured-image-container ipsGrid_span5 gs_reveal gs_reveal_fromRight">
+                                    <img width="479" src="~/img/189-Model-Fashion.PNG" alt="">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="card" style="width: 17rem;" text-align="center">
-                            <div class="card-header">
-                                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                                    </div>
-                                    <img class="img-fluid" src="~/img/189-Model-Fashion.png">
+                            <div class="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+                                <div class="featured-image-container ipsGrid_span5 gs_reveal gs_reveal_fromLeft">
+                                    <img width="479" src="~/img/61-Online-Shopping.PNG" alt="">
+                                </div>
+                                <div class="ipsGrid_span7 ipsType_left">
+                                    <h2 class="heading_large gs_reveal" style="text-align:center; color:grey"><strong>商城</strong></h2>
+                                    <h5 class="gs_reveal col-lg" style="text-align:center;">我們的商城不提供買賣交易服務，但可以在這個商城頁面即時的找到自己想要的服飾，可以根據你喜歡的風格，來整理出你可能有興趣的商家，如果想要下單購買，可以透過連結到商家商品頁面做下單。</h5>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 3-->
-                    <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="card" style="width: 17rem;" text-align="center">
-                            <div class="card-header">
-                                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                                    </div>
-                                    <img class="img-fluid" src="~/img/61-Online-Shopping.png">
+                            <div class="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+                                <div class="ipsGrid_span7 ipsType_right">
+                                    <h2 class="heading_large gs_reveal" style="text-align:center; color:grey"> <strong>貼文</strong></h2>
+                                    <h5 class="gs_reveal col-lg" style="text-align:center;">會員可以將自己穿搭的成品發文分享，並且可以製作自己的hashtag，將自己的風格做出一個特色標籤，在這個穿搭社群上結交志同道合的好友吧!</h5>
+                                </div>
+                                <div class="featured-image-container ipsGrid_span5 gs_reveal gs_reveal_fromRight">
+                                    <img width="479" src="~/img/111-Social-Media-Promotion.PNG" alt="">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="card" style="width: 17rem;" text-align="center">
-                            <div class="card-header">
-                                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                                    </div>
-                                    <img class="img-fluid" src="~/img/111-Social-Media-Promotion.png">
+                            <div class="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+                                <div class="featured-image-container ipsGrid_span5 gs_reveal gs_reveal_fromLeft">
+                                    <img width="479" src="~/img/198-Enjoying-Life.PNG" alt="">
+                                </div>
+                                <div class="ipsGrid_span7 ipsType_left">
+                                    <h2 class="heading_large gs_reveal" style="text-align:center; color:grey"><strong>天氣資訊</strong></h2>
+                                    <h5 class="gs_reveal col-lg" style="text-align:center;">我們提供中央氣象天氣資訊，讓你避免因為天氣因素而造成不適合的穿搭，系統也會依照天氣來提醒你適合的搭配。</h5>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="card" style="width: 17rem;" text-align="center">
-                            <div class="card-header">
-                                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                                    </div>
-                                    <img class="img-fluid" src="~/img/198-Enjoying-Life.png">
+                            <div class="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+                                <div class="ipsGrid_span7 ipsType_right">
+                                    <h2 class="heading_large gs_reveal" style="text-align:center; color:grey"> <strong>地點</strong></h2>
+                                    <h5 class="gs_reveal col-lg" style="text-align:center;">你是否有過因為地點的不同而有穿錯衣服的困擾呢?app還提供可以輸入「現在地點」及「目的地地點」來幫使用者估算溫差和提供穿搭建議，讓你能夠減少穿錯衣服的困擾或是旅行不知道該怎麼帶衣服的問題。</h5>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card" style="width: 17rem;" text-align="center">
-                            <div class="card-header">
-                                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                                    </div>
-                                    <img class="img-fluid" src="~/img/270-GPS.png">
+                                <div class="featured-image-container ipsGrid_span5 gs_reveal gs_reveal_fromRight">
+                                    <img width="479" src="~/img/270-GPS.PNG" alt="">
                                 </div>
                             </div>
                         </div>
@@ -151,9 +181,8 @@
                 </div>
             </div>
         </section>
-        <!-- About Section-->
-        <h6>&nbsp;</h6>
         <section class="masthead " style="background-image: linear-gradient(to bottom, #fefedf, #fcfede, #fafede, #f7fedd, #f5fedd, #f4fddc, #f4fddb, #f3fcda, #f4fad9, #f4f8d8, #f5f7d8, #f5f5d7);" id="about">
+            <h6>&nbsp;</h6>
             <div class="container">
                 <div class="text-center">
                     <!-- About Section Heading-->
@@ -171,7 +200,7 @@
                             </strong>
                         </h5>
                     </div>
-                    <img class="img-fluid style=" text-align:right;"" src="~/img/028-Millennials.png" width="300">
+                    <img class="img-fluid style=" text-align:right;"" src="~/img/Millennials.png" width="300">
                     <div class=" col-lg-4 ms-auto" style="color:darkgray">
                         <h5 style="font-family:圓體字體">
                             <strong>
@@ -192,10 +221,10 @@
                 <!-- Contact Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="color:gray"><strong>意見回饋</strong></h2>
                 <h6>&nbsp;</h6>
-                </div>
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
                 <div class="content">
                     <div class="row justify-content-center">
                         <div class="col-md-5">
@@ -232,17 +261,17 @@
                                             </div>
                                         </div>
                                     </p>
-                                        <input class="btn btn-primary btn-xl" id="submitButton" value="submit" type="submit">
-                                        <div>
-                                            <span style="color:#5E5E5E"><strong>@ViewBag.Msg</strong></span>
-                                        </div>
+                                    <input class="btn btn-primary btn-xl" id="submitButton" value="submit" type="submit">
+                                    <div>
+                                        <span style="color:#5E5E5E"><strong>@ViewBag.Msg</strong></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                   </div>
-                  }
-                    </section>
+                </div>
+            }
+        </section>
         <h6>&nbsp;</h6>
 
         <footer class="footer text-center" style="background-image: linear-gradient(to bottom, #fefedf, #fefbdb, #fef9d7, #fef6d3, #fef3cf, #fef1cc, #fef0c9, #feeec6, #feeec3, #ffedc1, #ffedbe, #ffecbb);">
@@ -252,22 +281,23 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4" style="color:gray"><strong>管理員</strong></h4>
                         <p>
-                            <a class="btn btn-outline-light btn-social mx-1" href="Index3"><i class="fa fa-user-circle"></i></a>
+                            <a href="Index3"><i class="fa fa-user-circle" style="font-size:35px"></i></a>
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4" style="color:gray"><strong>了解我們</strong></h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-instagram"></i></a>
+                        <a href="#!"><img src="~/img/messanger.png" width="30"></a>
+                        <a href="https://www.facebook.com/%E6%99%B4%E7%A9%BF%E6%90%AD-105364161796915"><img src="~/img/facebook.png" width="45"></a>
+                        <a href="#!"><img src="~/img/ig.png" width="35"></a>
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4" style="color:gray"><strong>常見問題</strong></h4>
-                        <p class="lead mb-0" style="color:gray">
-                            還在研發中...
-                        </p>
-
+                        <h4 class="text-uppercase mb-4" style="color:gray"><strong>模板、特效來源</strong></h4>
+                        <a href="https://www.creative-tim.com/"><img src="~/img/logo-small.png" width="42"></a>
+                        <a href="https://startbootstrap.com/theme/freelancer"><img src="~/img/sb-logo.svg" width="42"></a>
+                        <a href="https://codepen.io/denic/pen/GRoOxbM"><img src="~/img/codepen.png" width="42"></a>
+                        <a href="https://greensock.com/scrolltrigger/"><img src="~/img/gsap.png" width="42"></a>
                     </div>
                 </div>
             </div>
@@ -275,215 +305,51 @@
             <p>&copy; @DateTime.Now.Year - 晴穿搭 <img width="70" src="~/img/logo-sun.PNG"></p>
         </footer>
     </div>
+    <!-- Messenger 洽談外掛程式 Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your 洽談外掛程式 code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "105364161796915");
+        chatbox.setAttribute("attribution", "biz_inbox");
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v11.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <!-- Copyright Section-->
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright &copy; Your Website 2021</small></div>
     </div>
-    <!-- Portfolio Modals-->
-    <!-- Portfolio Modal 1-->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">虛擬人像</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="~/img/178-Artificial-Intelligence.png" alt="..." width="300" />
-                                <!-- Portfolio Modal - Text-->
-                                <h5 class="mb-4">利用模擬人物來創造屬於自己的虛擬人像!會員可以替自己的模擬人物作穿搭，我們提供一個完整的服飾、髮飾、人物表情、鞋款等的資料庫，以及搭配個人體質詢問，在不同的氣候下提供貼心的提醒，讓你在虛擬的世界隨時隨地搭配出你喜愛的風格!</h5>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 2-->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">穿搭</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="~/img/189-Model-Fashion.png" alt="..." width="300" />
-                                <!-- Portfolio Modal - Text-->
-                                <h5 class="mb-4">穿搭可以說是現代人必要的元素，能夠帶給人們好的印象，使用者們可以透過我們來學習如何穿搭，與app上的人一起互動分享，激發你的穿搭靈感!</h5>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 4-->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">商城</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="~/img/61-Online-Shopping.png" alt="..." width="300" />
-                                <!-- Portfolio Modal - Text-->
-                                <h5 class="mb-4">我們的商城不提供買賣交易服務，但可以在這個商城頁面即時的找到自己想要的服飾，可以根據你喜歡的風格，來整理出你可能有興趣的商家，如果想要下單購買，可以透過連結到商家商品頁面做下單。</h5>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 5-->
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">貼文</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="~/img/111-Social-Media-Promotion.png" alt="..." width="300" />
-                                <!-- Portfolio Modal - Text-->
-                                <h5 class="mb-4">會員可以將自己穿搭的成品發文分享，並且可以製作自己的hashtag，將自己的風格做出一個特色標籤，在這個穿搭社群上結交志同道合的好友吧!</h5>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">天氣資訊</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="~/img/198-Enjoying-Life.png" alt="..." width="300" />
-                                <!-- Portfolio Modal - Text-->
-                                <h5 class="mb-4">我們提供中央氣象天氣資訊，讓你避免因為天氣因素而造成不適合的穿搭，系統也會依照天氣來提醒你適合的搭配。</h5>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">地點</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="~/img/270-GPS.png" alt="..." width="300" />
-                                <!-- Portfolio Modal - Text-->
-                                <h5 class="mb-4">你是否有過因為地點的不同而有穿錯衣服的困擾呢?app還提供可以輸入「現在地點」及「目的地地點」來幫使用者估算溫差和提供穿搭建議，讓你能夠減少穿錯衣服的困擾或是旅行不知道該怎麼帶衣服的問題。</h5>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-                                <script src="js/scripts.js"></script>
-                                <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-                                <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-                                <script src="~/Scripts/bootstrap.min.js"></script>
-                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                                <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-                                <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-                                <script>
-                                            $(document).ready(function () {
-                                                // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-                                                demo.initChartsPages();
-                                            });
-                                </script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+            demo.initChartsPages();
+        });
+    </script>
 </body>
 </html>
 
