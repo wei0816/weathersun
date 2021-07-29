@@ -70,6 +70,10 @@ namespace Weathersun8889.Controllers
             var man = db.管理員.ToList();
             return View(man);
         }
+        public ActionResult Homepage()  //首頁
+        {
+            return View();
+        }
         public ActionResult Advise()  //網頁意見回饋資料表
         {
             var adv = db.網頁意見回饋資料表.ToList();

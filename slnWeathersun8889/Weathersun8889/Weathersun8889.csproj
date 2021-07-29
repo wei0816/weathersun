@@ -120,6 +120,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="homepage.css" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -265,6 +266,7 @@
     <Content Include="Views\Home\postedit.cshtml" />
     <Content Include="Views\Home\postDelete.cshtml" />
     <Content Include="Views\Home\Advise.cshtml" />
+    <Content Include="Views\Home\Homepage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
