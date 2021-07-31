@@ -101,6 +101,7 @@
     <Content Include="App_Data\DatabaseWS_log.ldf">
       <DependentUpon>DatabaseWS.mdf</DependentUpon>
     </Content>
+    <Content Include="background.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />

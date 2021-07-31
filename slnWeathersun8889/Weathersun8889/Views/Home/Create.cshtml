@@ -1,124 +1,145 @@
 ﻿@model Weathersun8889.會員
-
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -晴穿搭</title>
+    <link rel="sun-touch-icon" sizes="76x76" href="~/img/sun-icon.png">
+    <link rel="icon" type="image/png" href="~/img/weathersun.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        晴穿搭
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="~/Content/demo/demo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/background.css">
+</head>
 @{
     ViewBag.Title = "會員註冊";
 }
 
-<h2>會員註冊</h2>
-
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <head>
-        <meta name="viewport" content="width=device-width" />
-    </head>
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <p>
-            <div class="form-group">
-                @Html.LabelFor(model => model.會員帳號, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.會員帳號, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-                    @Html.ValidationMessageFor(model => model.會員帳號, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </p>
-        <p>
-            <div class="form-group">
-                @Html.LabelFor(model => model.性別, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.RadioButton("性別", "男", true)男
-                    @Html.RadioButton("性別", "女", true)女
-                </div>
-            </div>
-        </p>
-        <p>
-            <div class="form-group">
-                @Html.LabelFor(model => model.用戶名, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.用戶名, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-                    @Html.ValidationMessageFor(model => model.用戶名, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </p>
-        <p>
-            <div class="form-group" method="post" action="@Url.Action("Propics")" enctype="multipart/form-data">
-                @Html.LabelFor(model => model.個人頭貼, htmlAttributes: new { @class = "control-label col-md-2" })
-                 <div class="col-md-10">
-                     @Html.EditorFor(model => model.個人頭貼, new { htmlAttributes = new { @class = "form-control", type = "file", name = "Photo", id = "Photo", value="Save",required = "required" } })
-                     @Html.ValidationMessageFor(model => model.個人頭貼, "", new { @class = "text-danger" })
-                 </div>
-             </div>
-        </p>
-        <p>
-            <div class="form-group">
-                @Html.LabelFor(model => model.會員密碼, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.會員密碼, new { htmlAttributes = new { @class = "form-control", type = "password", required = "required" } })
-                    @Html.ValidationMessageFor(model => model.會員密碼, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </p>
-        <p>
-            <div class="form-group">
-                @Html.LabelFor(model => model.生日, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.生日, new { htmlAttributes = new { @class = "form-control", type = "date", required = "required" } })
-                    @Html.ValidationMessageFor(model => model.生日, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </p>
-        <p>
-            <div class="form-group">
-                @Html.LabelFor(model => model.居住地區, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <select id="居住地區" name="居住地區" class="form-control">
-                        <option value="基隆">基隆</option>
-                        <option value="台北">台北</option>
-                        <option value="新北">新北</option>
-                        <option value="桃園">桃園</option>
-                        <option value="台中">台中</option>
-                        <option value="台南">台南</option>
-                        <option value="高雄">高雄</option>
-                        <option value="新竹">新竹</option>
-                        <option value="苗栗">苗栗</option>
-                        <option value="彰化">彰化</option>
-                        <option value="南投">南投</option>
-                        <option value="雲林">雲林</option>
-                        <option value="嘉義">嘉義</option>
-                        <option value="屏東">屏東</option>
-                        <option value="宜蘭">宜蘭</option>
-                        <option value="花蓮">花蓮</option>
-                        <option value="台東">台東</option>
-                        <option value="澎湖">澎湖</option>
-                        <option value="金門">金門</option>
-                        <option value="連江">連江</option>
-                    </select>
-                </div>
-            </div>
-        </p>
-        <p>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="註冊" class="btn btn-default" />
-                </div>
-            </div>
-            <div>
-                <span style="color:red">@ViewBag.Msg</span>
-            </div>
-            <div>
-                <span style="color:red">@ViewBag.Message</span>
-            </div>
-        </p>
+<body>
+    <div class="bg">
+        <img src="~/img/bg img1.png">
     </div>
-}
-
-<div>
-    @Html.ActionLink("返回登入畫面", "Index")
-</div>
-
+    <div class="col-md-10">
+        <p style="font-size:90px;font-family:'Times New Roman', Times, serif">Sign up</p>
+    </div>
+    <div class="content">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>會員註冊</h2>
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <p>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.會員帳號, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.會員帳號, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.會員帳號, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </p>
+                                <p>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.性別, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.RadioButton("性別", "男", true)男
+                                            @Html.RadioButton("性別", "女", true)女
+                                        </div>
+                                    </div>
+                                </p>
+                                <p>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.用戶名, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.用戶名, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.用戶名, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </p>
+                                <p>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.會員密碼, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.會員密碼, new { htmlAttributes = new { @class = "form-control", type = "password", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.會員密碼, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </p>
+                                <p>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.生日, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.生日, new { htmlAttributes = new { @class = "form-control", type = "date", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.生日, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </p>
+                                <p>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.居住地區, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <select id="居住地區" name="居住地區" class="form-control">
+                                                <option value="基隆">基隆</option>
+                                                <option value="台北">台北</option>
+                                                <option value="新北">新北</option>
+                                                <option value="桃園">桃園</option>
+                                                <option value="台中">台中</option>
+                                                <option value="台南">台南</option>
+                                                <option value="高雄">高雄</option>
+                                                <option value="新竹">新竹</option>
+                                                <option value="苗栗">苗栗</option>
+                                                <option value="彰化">彰化</option>
+                                                <option value="南投">南投</option>
+                                                <option value="雲林">雲林</option>
+                                                <option value="嘉義">嘉義</option>
+                                                <option value="屏東">屏東</option>
+                                                <option value="宜蘭">宜蘭</option>
+                                                <option value="花蓮">花蓮</option>
+                                                <option value="台東">台東</option>
+                                                <option value="澎湖">澎湖</option>
+                                                <option value="金門">金門</option>
+                                                <option value="連江">連江</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </p>
+                                <p>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="註冊" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span style="color:red">@ViewBag.Msg</span>
+                                    </div>
+                                    <div>
+                                        <span style="color:red">@ViewBag.Message</span>
+                                    </div>
+                                </p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buton-inside" style="border-radius: 50%; background-color: #1E1C1C; height: 120px; width: 120px" href="Index2">
+            <button class="button" style="border-radius: 50%; background-color: #FBEAFF; height: 110px; width: 110px; margin-left:0.5px; margin-right:0.5px; margin-top:0.5px; margin-bottom:0.5px"><a href="Index" style="color:black"><strong style="font-size:40px">◀</strong></a></button>
+        </div>
+    </div>
+</body>
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
