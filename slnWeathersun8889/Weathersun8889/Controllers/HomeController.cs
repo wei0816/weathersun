@@ -74,6 +74,10 @@ namespace Weathersun8889.Controllers
         {
             return View();
         }
+        public ActionResult welcome()  //會員登入之後的畫面
+        {
+            return View();
+        }
         public ActionResult Advise()  //網頁意見回饋資料表
         {
             var adv = db.網頁意見回饋資料表.ToList();
@@ -129,7 +133,7 @@ namespace Weathersun8889.Controllers
 
             Session["WelCome"] = mem.用戶名 + "歡迎光臨";
             Session["Member"] = mem;
-            return RedirectToAction("Index2");
+            return RedirectToAction("welcome");
         }
         public ActionResult Logout1()
         {

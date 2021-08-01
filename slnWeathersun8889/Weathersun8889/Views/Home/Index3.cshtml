@@ -27,7 +27,7 @@
 
 <body>
     <div class="bg">
-        <img src="~/img/bg img1.png">
+        <img src="~/img/bg img-1.png">
     </div>
     <div class="col-md-12">
         <p style="font-size:90px;font-family:'Times New Roman', Times, serif">Log in</p>
@@ -53,12 +53,14 @@
                             <div>
                                 <span style="color:red">@ViewBag.Message</span>
                             </div>
-                            <p>@Html.ActionLink("返回主畫面", "Index2")</p>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="buton-inside" style="border-radius: 50%; background-color: #1E1C1C; height: 120px; width: 120px" href="Index2">
+        <button class="button" style="border-radius: 50%; background-color: #FBEAFF; height: 110px; width: 110px; margin-left:0.5px; margin-right:0.5px; margin-top:0.5px; margin-bottom:0.5px"><a href="Index2" style="color:black"><strong style="font-size:40px">◀</strong></a></button>
     </div>
 </body>
 

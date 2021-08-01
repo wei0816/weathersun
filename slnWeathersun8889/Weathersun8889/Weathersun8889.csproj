@@ -268,6 +268,7 @@
     <Content Include="Views\Home\postDelete.cshtml" />
     <Content Include="Views\Home\Advise.cshtml" />
     <Content Include="Views\Home\Homepage.cshtml" />
+    <Content Include="Views\Home\welcome.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

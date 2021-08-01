@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="~/animations.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="~/background.css">
     <script>
         function animateFrom(elem, direction) {
             direction = direction || 1;
@@ -77,54 +78,55 @@
 <body id="page-top">
     <div class="wrapper">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <img width="50" src="~/img/logo-sun.PNG">
+        <nav class="navbar navbar-expand-lg  text-uppercase fixed-top" style="background-color:gray"> 
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><strong>晴穿搭⛅</strong></a>
+                <img width="50" src="~/img/logo-sun.PNG">
+                <a class="navbar-brand" href="#page-top" ><strong>晴穿搭⛅</strong></a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">六大主題</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">關於</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">意見回饋</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio" ><strong>六大主題</strong></a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about" ><strong>關於</strong></a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact" ><strong>意見回饋</strong></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <header class="masthead text-white text-center" style="background-image: linear-gradient(to bottom, #fefedf, #fcf7d2, #fcf0c5, #fce8b9, #fde0ad, #f4e0aa, #ebe0a9, #e1e0a8, #cce5b8, #bde8ca, #b7e9db, #bae8e8);">
-                <div class="container ">
-                    <h6>&nbsp;</h6>
-                    <h1>&nbsp;</h1>
-                    <div class="row">
-                        <div class="col-lg-7 col-md-12 col-12  align-items-center">
-                            <div>
-                                <h1 class="animate__animated animate__fadeInDown" style="color:grey"><strong>開始探索!⛅</strong></h1>
-                                <h5 class="masthead-subheading font-weight-bold mb-0">歡迎來到晴穿搭!</h5>
-                                <div class="custom-btn-group mt-4">
-                                    <a class="btn btn-xl btn-outline-light " style="background-color:darksalmon" href="#">
-                                        <i class="fas fa-download me-2"></i>
-                                        Free APP
-                                    </a>
-                                    <a class="btn btn-xl btn-outline-light " style="background-color:darksalmon" href="Homepage">
-                                        <i class="fas fa-angle-double-right"></i>
-                                        <strong>前往網頁版</strong>
-                                    </a>
-                                </div>
-                                <h5>&nbsp;</h5>
-                                <img class="masthead-avatar mb-5" src="~/img/qr.ioi.tw.png" alt="..." />
+        <header class="masthead text-white text-center" style="background-image: linear-gradient(to right bottom, #ffe999, #feeda6, #fdf1b4, #fdf5c1, #fdf9ce, #fcf9ce, #fbface, #faface, #f6f7c1, #f3f4b4, #eff0a6, #ebed99);">
+            <!--linear-gradient(to bottom, #fefedf, #fcf7d2, #fcf0c5, #fce8b9, #fde0ad, #f4e0aa, #ebe0a9, #e1e0a8, #cce5b8, #bde8ca, #b7e9db, #bae8e8);-->
+            <div class="container ">
+                <h6>&nbsp;</h6>
+                <h1>&nbsp;</h1>
+                <div class="row">
+                    <div class="col-lg-7 col-md-12 col-12  align-items-center">
+                        <div>
+                            <h1 class="animate__animated animate__fadeInDown" style="color:grey"><strong>開始探索!⛅</strong></h1>
+                            <h5 class="masthead-subheading font-weight-bold mb-0" style="color:darkgrey">歡迎來到晴穿搭!</h5>
+                            <div class="custom-btn-group mt-4">
+                                <a class="btn btn-xl btn-outline-light " style="background-color:darksalmon" href="#">
+                                    <i class="fas fa-download me-2"></i>
+                                    Free APP
+                                </a>
+                                <a class="btn btn-xl btn-outline-light " style="background-color:darksalmon" href="Homepage">
+                                    <i class="fas fa-angle-double-right"></i>
+                                    <strong>前往網頁版</strong>
+                                </a>
                             </div>
+                            <h5>&nbsp;</h5>
+                            <img class="masthead-avatar mb-5" src="~/img/qr.ioi.tw.png" alt="..." />
                         </div>
-                        <div class="col col-12 col-sm-6 col-md-12 col-lg-4">
-                            <div>
-                                <img class="masthead-avatar mb-5" src="~/img/app1.jpg" alt="..." width="280" />
-                            </div>
+                    </div>
+                    <div class="col col-12 col-sm-6 col-md-12 col-lg-4">
+                        <div>
+                            <img class="masthead-avatar mb-5" src="~/img/app1.jpg" alt="..." width="280" />
                         </div>
                     </div>
                 </div>
-            </header>
+            </div>
+        </header>
 
             <h6>&nbsp;</h6>
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="color:grey"><strong>六大主題</strong></h2>
@@ -211,7 +213,7 @@
                                 </strong>
                             </h5>
                         </div>
-                        <img class="img-fluid style=" text-align:right;"" src="~/img/Millennials.png" width="300">
+                        <img class="img-fluid" style=" text-align:right" src="~/img/Millennials.png" width="300">
                         <div class=" col-lg-4 ms-auto" style="color:darkgray">
                             <h5 style="font-family:圓體字體">
                                 <strong>
