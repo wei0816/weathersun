@@ -1,97 +1,131 @@
 ﻿@model Weathersun8889.會員
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title -晴穿搭</title>
     <link rel="sun-touch-icon" sizes="76x76" href="~/img/sun-icon.png">
     <link rel="icon" type="image/png" href="~/img/weathersun.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-        晴穿搭
-    </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <!-- CSS Files -->
+    <title>晴穿搭</title>
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="~/Content/demo/demo.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/background.css">
+    <link rel="stylesheet" href="https://s1.pstatp.com/cdn/expire-1-y/tailwindcss/2.0.3/tailwind.min.css">
+    <link rel="stylesheet" href="https://s3.pstatp.com/cdn/expire-1-y/MaterialDesign-Webfont/5.9.55/css/materialdesignicons.min.css">
+    <script src="https://s2.pstatp.com/cdn/expire-1-y/alpinejs/2.8.0/alpine.js"></script>
+    <script src="https://s3.pstatp.com/cdn/expire-1-y/zxcvbn/4.4.2/zxcvbn.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@1,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="image/favicon-1.ico" type="image/x-icon">
 </head>
 @{
     ViewBag.Title = "會員註冊";
 }
 
-<body>
-    <div class="bg">
-        <img src="~/img/bg img-1.png">
-    </div>
-    <div class="col-md-10">
-        <p style="font-size:90px;font-family:'Times New Roman', Times, serif">Sign up</p>
-    </div>
-    <div class="content">
-        <div class="row justify-content-center">
-            <div class="col-md-7">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>會員註冊</h2>
-                        @using (Html.BeginForm())
-                        {
-                            @Html.AntiForgeryToken()
-                            <div class="form-horizontal">
+<body class="dwo h-screen overflow-hidden flex items-center justify-center">
+    <nav class="navbar navbar-expand-lg text-uppercase fixed-top">
+        <div class="container">
+            <img width="80" src="~/img/logo-sun.PNG">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="Index2" style="color:darksalmon;font-size:24px"><strong>Go Back</strong> </a></li>
+            </ul>
+        </div>
+    </nav>
+            <div class="bg">
+                <img src="~/img/bg4.png">
+            </div>
+            <div class="min-h-screen flex items-center justify-center px-5 py-5">
+                <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden">
+                    <div class="md:flex w-full">
+                        <div class="hidden md:block w-1/2 bg-yellow-200 py-10 px-10">
+                            <div class="text-center mb-10">
+                                <h1 class="font-bold text-3xl text-gray-900">已經有帳號?</h1>
+                                <h1 class=" text-3xl text-gray-400">WELCOME BACK!</h1>
+                            </div>
+                            <img class="masthead-avatar mb-5" src="~/img/Millennials.png" alt="..." width="280" />
+                            <a  class="block w-full max-w-xs mx-auto bg-yellow-400 hover:bg-indigo-300 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold" href="Index" style="text-align:center">
+                                登入
+                            </a>
+                        </div>
+                        <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
+                            <div class="text-center mb-10">
+                                <h1 class="font-bold text-3xl text-gray-900">註冊</h1>
+                                <h6 class="mt-2">HELLO NEW FRIEND!</h6>
+                            </div>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                <p>
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.會員帳號, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.會員帳號, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-                                            @Html.ValidationMessageFor(model => model.會員帳號, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                </p>
-                                <p>
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.性別, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.RadioButton("性別", "男", true)男
-                                            @Html.RadioButton("性別", "女", true)女
-                                        </div>
-                                    </div>
-                                </p>
-                                <p>
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.用戶名, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.用戶名, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                <div class="flex -mx-3">
+                                    <div class="w-1/2 px-3 mb-5">
+                                        @Html.LabelFor(model => model.用戶名, htmlAttributes: new { @class = "text-xs font-semibold px-1" })
+                                        <div class="flex">
+                                            <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                                <i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
+                                            </div>
+                                            @Html.EditorFor(model => model.用戶名, new { htmlAttributes = new { @class = "w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-yellow-400", placeholder = "請輸入用戶名", required = "required" } })
                                             @Html.ValidationMessageFor(model => model.用戶名, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                </p>
-                                <p>
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.會員密碼, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.會員密碼, new { htmlAttributes = new { @class = "form-control", type = "password", required = "required" } })
+                                    <div class="w-1/2 px-3 mb-5">
+                                        @Html.LabelFor(model => model.性別, htmlAttributes: new { @class = "text-xs font-semibold px-1" })
+                                        <div class="flex">
+                                            <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                                <i class="mdi mdi-human-male-female text-gray-400 text-lg"></i>
+                                            </div>
+                                            <select id="居住地區" name="居住地區" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                <option value="男">男</option>
+                                                <option value="女">女</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex -mx-3">
+                                    <div class="w-30 px-3 mb-5">
+                                        @Html.LabelFor(model => model.會員帳號, htmlAttributes: new { @class = "text-xs font-semibold px-1" })
+                                        <div class="flex">
+                                            <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                                <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                                            </div>
+                                            @Html.EditorFor(model => model.會員帳號, new { htmlAttributes = new { @class = "w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500", placeholder = "xxxxx@sample.com", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.會員帳號, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="w-1/2 px-3 mb-5">
+                                        @Html.LabelFor(model => model.會員密碼, htmlAttributes: new { @class = "text-xs font-semibold px-1" })
+                                        <div class="flex">
+                                            <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                                <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+                                            </div>
+                                            @Html.EditorFor(model => model.會員密碼, new { htmlAttributes = new { @class = "w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500", placeholder = "請輸入密碼", type = "password", required = "required" } })
                                             @Html.ValidationMessageFor(model => model.會員密碼, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                </p>
-                                <p>
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.生日, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.生日, new { htmlAttributes = new { @class = "form-control", type = "date", required = "required" } })
+                                </div>
+                                <div class="flex -mx-3">
+                                    <div class="w-30  px-3 mb-5">
+                                        @Html.LabelFor(model => model.生日, htmlAttributes: new { @class = "text-xs font-semibold px-1" })
+                                        <div class="flex">
+                                            <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                                <i class="mdi mdi-cake-variant text-gray-400 text-lg"></i>
+                                            </div>
+                                            @Html.EditorFor(model => model.生日, new { htmlAttributes = new { @class = "w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500", type = "date", required = "required" } })
                                             @Html.ValidationMessageFor(model => model.生日, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                </p>
-                                <p>
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.居住地區, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            <select id="居住地區" name="居住地區" class="form-control">
+
+                                    <div class="w-1/2 px-3 mb-5">
+                                        @Html.LabelFor(model => model.居住地區, htmlAttributes: new { @class = "text-xs font-semibold px-1" })
+                                        <div class="flex">
+                                            <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                                <i class="mdi mdi-map-marker-radius text-gray-400 text-lg"></i>
+                                            </div>
+                                            <select id="居住地區" name="居住地區" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                                 <option value="基隆">基隆</option>
                                                 <option value="台北">台北</option>
                                                 <option value="新北">新北</option>
@@ -115,30 +149,23 @@
                                             </select>
                                         </div>
                                     </div>
-                                </p>
-                                <p>
-                                    <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
-                                            <input type="submit" value="註冊" class="btn btn-primary" />
+                                </div>
+                                <div class="flex -mx-3">
+                                    <div class="w-full px-3 mb-5">
+                                        <button type="submit" class="block w-full max-w-xs mx-auto bg-yellow-400 hover:bg-indigo-300 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+                                            註冊
+                                        </button>
+                                        <p>&nbsp;</p>
+                                        <div>
+                                            <span style="color:red">@ViewBag.Message</span>
                                         </div>
                                     </div>
-                                    <div>
-                                        <span style="color:red">@ViewBag.Msg</span>
-                                    </div>
-                                    <div>
-                                        <span style="color:red">@ViewBag.Message</span>
-                                    </div>
-                                </p>
-                            </div>
-                        }
-                    </div>
+                                </div>
+                            }
+                        </div>
                 </div>
-            </div>
-        </div>
-        <div class="buton-inside" style="border-radius: 50%; background-color: #1E1C1C; height: 120px; width: 120px" href="Index2">
-            <button class="button" style="border-radius: 50%; background-color: #FBEAFF; height: 110px; width: 110px; margin-left:0.5px; margin-right:0.5px; margin-top:0.5px; margin-bottom:0.5px"><a href="Index" style="color:black"><strong style="font-size:40px">◀</strong></a></button>
-        </div>
-    </div>
+              </div>
+       </div>
 </body>
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

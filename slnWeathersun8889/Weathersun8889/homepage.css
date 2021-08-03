@@ -49,7 +49,6 @@ body {
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
