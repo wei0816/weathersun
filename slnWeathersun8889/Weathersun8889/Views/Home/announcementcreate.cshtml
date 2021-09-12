@@ -1,51 +1,203 @@
-﻿@model Weathersun8889.公告事項
+﻿@model Weathersun8889.Announcement
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -晴穿搭</title>
+    <link rel="sun-touch-icon" sizes="76x76" href="~/img/sun-icon.png">
+    <link rel="icon" type="image/png" href="~/img/weathersun.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        晴穿搭
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="~/Content/demo/demo.css" rel="stylesheet" />
+</head>
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="white" data-active-color="danger">
+            <div class="logo">
+                <a class="simple-text logo-mini">
+                    <div class="logo-image-small">
+                        <img src="~/img/logo-sun.png">
+                    </div>
+                    <!-- <p>CT</p> -->
+                </a>
+                <a class="simple-text logo-normal">
+                    <strong>
+                        晴穿搭
+                    </strong>
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="Member">
 
+                            <h6>👦🏻 會員管理平台</h6>
+                        </a>
+                    </li>
 
+                    <li >
+                        <a href="Admin">
 
-<h2>公告事項</h2>
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.管理員編號, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.管理員編號, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-                @Html.ValidationMessageFor(model => model.管理員編號, "", new { @class = "text-danger" })
+                            <h5><strong>👩‍🔧 管理員平台</strong></h5>
+                        </a>
+                    </li>
+                    <li class="active ">
+                        <a href="Announcement">
+
+                            <h6>📜 公告事項</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="MemberFeedback">
+
+                            <h6>📰 系統回報資料</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="WebpageFeedback">
+
+                            <h6>✉ 網頁意見回饋資料表</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Product">
+
+                            <h6>👕 商品</h6>
+                        </a>
+                    </li>
+
+                    <li class="active-pro">
+
+                        <p>&nbsp;&nbsp;&copy;@DateTime.Now.Year - 晴穿搭</p>
+                    </li>
+                </ul>
             </div>
         </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="javascript:;"><strong>晴穿搭後臺管理⛅</strong></a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.會員帳號, "會員帳號", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.會員帳號, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-                @Html.ValidationMessageFor(model => model.會員帳號, "", new { @class = "text-danger" })
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link btn-rotate" href="#">
+
+                                    <p>
+                                        使用守則
+                                    </p>
+                                </a>
+                            <li class="nav-item">
+                                <a class="nav-link btn-rotate" href="AdminLogin">
+
+                                    <p>
+                                        登出
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="content ">
+                <div class="row">
+                    <div class="col-md-10 ">
+                        <div class="card ">
+                            <div class="card-header">
+                                <h2>公告事項</h2>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        <label class="control-label col-md-10">管理員帳號</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Aaccount, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入管理員帳號", value = "", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.Aaccount, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-10">會員帳號</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入會員帳號", value = "", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-10">公告事項</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.SystemAnnounce, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入公告事項", value = "", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.SystemAnnounce, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-10">公告日期</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", type = "date", required = "required" } })
+                                            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="新增" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span style="color:red">@ViewBag.Msg</span>
+                                    </div>
+                                   </div>
+                                }
+                                <div>
+                                    @Html.ActionLink("返回公告事項列表", "Announcement")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.系統公告, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.系統公告, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-                @Html.ValidationMessageFor(model => model.系統公告, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="新增!" class="btn btn-default" />
+            <h5>&nbsp;</h5>
+            <div class="credits ml-auto">
+                <div class="container body-content">
+                    <hr />
+                    <footer>
+                        <p>&copy; @DateTime.Now.Year - 晴穿搭</p>
+                    </footer>
+                </div>
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("返回主畫面", "announcement")
-</div>
-
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>

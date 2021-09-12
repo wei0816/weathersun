@@ -1,322 +1,157 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DatabaseWSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.Hashtag' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
-  <EntityType Name="Hashtag">
+<Schema Namespace="WeathersunModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
     <Key>
-      <PropertyRef Name="貼文編號" />
-      <PropertyRef Name="Hashtag名稱" />
+      <PropertyRef Name="Aaccount" />
     </Key>
-    <Property Name="貼文編號" Type="int" Nullable="false" />
-    <Property Name="Hashtag名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Anumber" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Aaccount" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Apassword" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Aemail" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="公告事項">
+  <EntityType Name="Announcement">
     <Key>
-      <PropertyRef Name="管理員編號" />
+      <PropertyRef Name="AID" />
     </Key>
-    <Property Name="管理員編號" Type="int" Nullable="false" />
-    <Property Name="會員帳號" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="系統公告" Type="nvarchar(max)" />
+    <Property Name="AID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aaccount" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Account" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="SystemAnnounce" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
   </EntityType>
-  <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.系統回報資料' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
-  <EntityType Name="系統回報資料">
+  <EntityType Name="Calendar">
     <Key>
-      <PropertyRef Name="會員帳號" />
-      <PropertyRef Name="回報內容" />
+      <PropertyRef Name="CId" />
     </Key>
-    <Property Name="會員帳號" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="回報內容" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="WearNote" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cdate" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="身分驗證資料">
+  <EntityType Name="Member">
     <Key>
-      <PropertyRef Name="會員帳號" />
+      <PropertyRef Name="Account" />
     </Key>
-    <Property Name="會員帳號" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="手機號碼" Type="char" MaxLength="10" Nullable="false" />
-    <Property Name="會員Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Account" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Gender" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birdate" Type="date" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MemberEmail" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.穿搭資料' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
-  <EntityType Name="穿搭資料">
+  <EntityType Name="MemberFeedback">
     <Key>
-      <PropertyRef Name="會員帳號" />
-      <PropertyRef Name="穿搭風格" />
-      <PropertyRef Name="穿搭服飾" />
+      <PropertyRef Name="MID" />
     </Key>
-    <Property Name="會員帳號" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="穿搭風格" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="穿搭服飾" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Feedback" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="商品">
+  <EntityType Name="Product">
     <Key>
-      <PropertyRef Name="商品標籤" />
+      <PropertyRef Name="ProId" />
     </Key>
-    <Property Name="商品標籤" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="商品售價" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="商品名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="商品類別" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="廠商名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="商品連結" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="商品貨號" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="商品圖片" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ProName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProCategory" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProShopName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProItemNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProPic" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="商品推薦表">
+  <EntityType Name="sysdiagrams">
     <Key>
-      <PropertyRef Name="商品標籤" />
+      <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="商品標籤" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="商品推薦" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\GIT-REPO\WEATHERSUN\SLNWEATHERSUN8889\WEATHERSUN8889\APP_DATA\DATABASEWS.MDF.dbo.虛擬人像' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
-  <EntityType Name="虛擬人像">
-    <Key>
-      <PropertyRef Name="會員帳號" />
-      <PropertyRef Name="夏天體質" />
-      <PropertyRef Name="冬天體質" />
-    </Key>
-    <Property Name="會員帳號" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="夏天體質" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="冬天體質" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="固定文字提醒" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="貼文">
-    <Key>
-      <PropertyRef Name="貼文編號" />
-    </Key>
-    <Property Name="貼文編號" Type="int" Nullable="false" />
-    <Property Name="會員帳號" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="貼文照片" Type="nvarchar" MaxLength="50" />
-    <Property Name="貼文文字" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="編輯日期" Type="datetime" Nullable="false" />
-    <Property Name="商品標籤" Type="nvarchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="會員">
-    <Key>
-      <PropertyRef Name="會員帳號" />
-    </Key>
-    <Property Name="會員帳號" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="性別" Type="nchar" MaxLength="2" Nullable="false" />
-    <Property Name="用戶名" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="個人頭貼" Type="nvarchar" MaxLength="50" />
-    <Property Name="會員密碼" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="生日" Type="date" Nullable="false" />
-    <Property Name="居住地區" Type="nvarchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="管理員">
-    <Key>
-      <PropertyRef Name="管理員編號" />
-    </Key>
-    <Property Name="管理員編號" Type="int" Nullable="false" />
-    <Property Name="管理員帳號" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="管理員密碼" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="管理員Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="網頁意見回饋資料表">
+  <EntityType Name="WebpageFeedback">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="手機號碼" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="意見回饋" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Feedback" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Hashtag__貼文編號__4959E263">
-    <End Role="貼文" Type="Self.貼文" Multiplicity="1" />
-    <End Role="Hashtag" Type="Self.Hashtag" Multiplicity="*" />
+  <Association Name="FK__Announcem__Aacco__793DFFAF">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+    <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="貼文">
-        <PropertyRef Name="貼文編號" />
+      <Principal Role="Admin">
+        <PropertyRef Name="Aaccount" />
       </Principal>
-      <Dependent Role="Hashtag">
-        <PropertyRef Name="貼文編號" />
+      <Dependent Role="Announcement">
+        <PropertyRef Name="Aaccount" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__公告事項__會員帳號__44952D46">
-    <End Role="會員" Type="Self.會員" Multiplicity="1" />
-    <End Role="公告事項" Type="Self.公告事項" Multiplicity="*" />
+  <Association Name="FK__Announcem__Accou__7A3223E8">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="會員">
-        <PropertyRef Name="會員帳號" />
+      <Principal Role="Member">
+        <PropertyRef Name="Account" />
       </Principal>
-      <Dependent Role="公告事項">
-        <PropertyRef Name="會員帳號" />
+      <Dependent Role="Announcement">
+        <PropertyRef Name="Account" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__公告事項__管理員編號__53D770D6">
-    <End Role="管理員" Type="Self.管理員" Multiplicity="1" />
-    <End Role="公告事項" Type="Self.公告事項" Multiplicity="0..1" />
+  <Association Name="FK__Calendar__Accoun__7FEAFD3E">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Calendar" Type="Self.Calendar" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="管理員">
-        <PropertyRef Name="管理員編號" />
+      <Principal Role="Member">
+        <PropertyRef Name="Account" />
       </Principal>
-      <Dependent Role="公告事項">
-        <PropertyRef Name="管理員編號" />
+      <Dependent Role="Calendar">
+        <PropertyRef Name="Account" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__系統回報資料__會員帳號__4589517F">
-    <End Role="會員" Type="Self.會員" Multiplicity="1" />
-    <End Role="系統回報資料" Type="Self.系統回報資料" Multiplicity="*" />
+  <Association Name="FK__MemberFee__Accou__7D0E9093">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="MemberFeedback" Type="Self.MemberFeedback" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="會員">
-        <PropertyRef Name="會員帳號" />
+      <Principal Role="Member">
+        <PropertyRef Name="Account" />
       </Principal>
-      <Dependent Role="系統回報資料">
-        <PropertyRef Name="會員帳號" />
+      <Dependent Role="MemberFeedback">
+        <PropertyRef Name="Account" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__身分驗證資料__會員帳號__43A1090D">
-    <End Role="會員" Type="Self.會員" Multiplicity="1" />
-    <End Role="身分驗證資料" Type="Self.身分驗證資料" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="會員">
-        <PropertyRef Name="會員帳號" />
-      </Principal>
-      <Dependent Role="身分驗證資料">
-        <PropertyRef Name="會員帳號" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__穿搭資料__會員帳號__467D75B8">
-    <End Role="會員" Type="Self.會員" Multiplicity="1" />
-    <End Role="穿搭資料" Type="Self.穿搭資料" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="會員">
-        <PropertyRef Name="會員帳號" />
-      </Principal>
-      <Dependent Role="穿搭資料">
-        <PropertyRef Name="會員帳號" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__商品推薦表__商品標籤__68D28DBC">
-    <End Role="商品" Type="Self.商品" Multiplicity="1" />
-    <End Role="商品推薦表" Type="Self.商品推薦表" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="商品">
-        <PropertyRef Name="商品標籤" />
-      </Principal>
-      <Dependent Role="商品推薦表">
-        <PropertyRef Name="商品標籤" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__虛擬人像__會員帳號__477199F1">
-    <End Role="會員" Type="Self.會員" Multiplicity="1" />
-    <End Role="虛擬人像" Type="Self.虛擬人像" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="會員">
-        <PropertyRef Name="會員帳號" />
-      </Principal>
-      <Dependent Role="虛擬人像">
-        <PropertyRef Name="會員帳號" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__貼文__商品標籤__67DE6983">
-    <End Role="商品" Type="Self.商品" Multiplicity="1" />
-    <End Role="貼文" Type="Self.貼文" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="商品">
-        <PropertyRef Name="商品標籤" />
-      </Principal>
-      <Dependent Role="貼文">
-        <PropertyRef Name="商品標籤" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__貼文__會員帳號__4865BE2A">
-    <End Role="會員" Type="Self.會員" Multiplicity="1" />
-    <End Role="貼文" Type="Self.貼文" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="會員">
-        <PropertyRef Name="會員帳號" />
-      </Principal>
-      <Dependent Role="貼文">
-        <PropertyRef Name="會員帳號" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="DatabaseWSModelStoreContainer">
-    <EntitySet Name="公告事項" EntityType="Self.公告事項" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="身分驗證資料" EntityType="Self.身分驗證資料" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="商品" EntityType="Self.商品" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="商品推薦表" EntityType="Self.商品推薦表" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="貼文" EntityType="Self.貼文" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="會員" EntityType="Self.會員" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="管理員" EntityType="Self.管理員" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="網頁意見回饋資料表" EntityType="Self.網頁意見回饋資料表" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Hashtag" EntityType="Self.Hashtag" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Hashtag].[貼文編號] AS [貼文編號], 
-    [Hashtag].[Hashtag名稱] AS [Hashtag名稱]
-    FROM [dbo].[Hashtag] AS [Hashtag]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="系統回報資料" EntityType="Self.系統回報資料" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [系統回報資料].[會員帳號] AS [會員帳號], 
-    [系統回報資料].[回報內容] AS [回報內容]
-    FROM [dbo].[系統回報資料] AS [系統回報資料]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="穿搭資料" EntityType="Self.穿搭資料" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [穿搭資料].[會員帳號] AS [會員帳號], 
-    [穿搭資料].[穿搭風格] AS [穿搭風格], 
-    [穿搭資料].[穿搭服飾] AS [穿搭服飾]
-    FROM [dbo].[穿搭資料] AS [穿搭資料]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="虛擬人像" EntityType="Self.虛擬人像" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [虛擬人像].[會員帳號] AS [會員帳號], 
-    [虛擬人像].[夏天體質] AS [夏天體質], 
-    [虛擬人像].[冬天體質] AS [冬天體質], 
-    [虛擬人像].[固定文字提醒] AS [固定文字提醒]
-    FROM [dbo].[虛擬人像] AS [虛擬人像]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="FK__Hashtag__貼文編號__4959E263" Association="Self.FK__Hashtag__貼文編號__4959E263">
-      <End Role="貼文" EntitySet="貼文" />
-      <End Role="Hashtag" EntitySet="Hashtag" />
+  <EntityContainer Name="WeathersunModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Announcement" EntityType="Self.Announcement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Calendar" EntityType="Self.Calendar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberFeedback" EntityType="Self.MemberFeedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WebpageFeedback" EntityType="Self.WebpageFeedback" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Announcem__Aacco__793DFFAF" Association="Self.FK__Announcem__Aacco__793DFFAF">
+      <End Role="Admin" EntitySet="Admin" />
+      <End Role="Announcement" EntitySet="Announcement" />
     </AssociationSet>
-    <AssociationSet Name="FK__公告事項__會員帳號__44952D46" Association="Self.FK__公告事項__會員帳號__44952D46">
-      <End Role="會員" EntitySet="會員" />
-      <End Role="公告事項" EntitySet="公告事項" />
+    <AssociationSet Name="FK__Announcem__Accou__7A3223E8" Association="Self.FK__Announcem__Accou__7A3223E8">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Announcement" EntitySet="Announcement" />
     </AssociationSet>
-    <AssociationSet Name="FK__公告事項__管理員編號__53D770D6" Association="Self.FK__公告事項__管理員編號__53D770D6">
-      <End Role="管理員" EntitySet="管理員" />
-      <End Role="公告事項" EntitySet="公告事項" />
+    <AssociationSet Name="FK__Calendar__Accoun__7FEAFD3E" Association="Self.FK__Calendar__Accoun__7FEAFD3E">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Calendar" EntitySet="Calendar" />
     </AssociationSet>
-    <AssociationSet Name="FK__系統回報資料__會員帳號__4589517F" Association="Self.FK__系統回報資料__會員帳號__4589517F">
-      <End Role="會員" EntitySet="會員" />
-      <End Role="系統回報資料" EntitySet="系統回報資料" />
-    </AssociationSet>
-    <AssociationSet Name="FK__身分驗證資料__會員帳號__43A1090D" Association="Self.FK__身分驗證資料__會員帳號__43A1090D">
-      <End Role="會員" EntitySet="會員" />
-      <End Role="身分驗證資料" EntitySet="身分驗證資料" />
-    </AssociationSet>
-    <AssociationSet Name="FK__穿搭資料__會員帳號__467D75B8" Association="Self.FK__穿搭資料__會員帳號__467D75B8">
-      <End Role="會員" EntitySet="會員" />
-      <End Role="穿搭資料" EntitySet="穿搭資料" />
-    </AssociationSet>
-    <AssociationSet Name="FK__商品推薦表__商品標籤__68D28DBC" Association="Self.FK__商品推薦表__商品標籤__68D28DBC">
-      <End Role="商品" EntitySet="商品" />
-      <End Role="商品推薦表" EntitySet="商品推薦表" />
-    </AssociationSet>
-    <AssociationSet Name="FK__虛擬人像__會員帳號__477199F1" Association="Self.FK__虛擬人像__會員帳號__477199F1">
-      <End Role="會員" EntitySet="會員" />
-      <End Role="虛擬人像" EntitySet="虛擬人像" />
-    </AssociationSet>
-    <AssociationSet Name="FK__貼文__商品標籤__67DE6983" Association="Self.FK__貼文__商品標籤__67DE6983">
-      <End Role="商品" EntitySet="商品" />
-      <End Role="貼文" EntitySet="貼文" />
-    </AssociationSet>
-    <AssociationSet Name="FK__貼文__會員帳號__4865BE2A" Association="Self.FK__貼文__會員帳號__4865BE2A">
-      <End Role="會員" EntitySet="會員" />
-      <End Role="貼文" EntitySet="貼文" />
+    <AssociationSet Name="FK__MemberFee__Accou__7D0E9093" Association="Self.FK__MemberFee__Accou__7D0E9093">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="MemberFeedback" EntitySet="MemberFeedback" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

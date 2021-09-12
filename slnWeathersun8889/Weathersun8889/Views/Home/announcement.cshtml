@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Weathersun8889.公告事項>
+﻿@model IEnumerable<Weathersun8889.Announcement>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,72 +47,43 @@
             <div class="sidebar-wrapper">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="Index1">
+                        <a href="Member">
 
                             <h6>👦🏻 會員管理平台</h6>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="manager">
+                    <li >
+                        <a href="Admin">
 
                             <h6>👩‍🔧 管理員平台</h6>
                         </a>
                     </li>
                     <li class="active ">
-                        <a href="announcement">
+                        <a href="Announcement">
 
                             <h5><strong>📜 公告事項</strong></h5>
                         </a>
                     </li>
                     <li>
-                        <a href="system">
+                        <a href="MemberFeedback">
 
                             <h6>📰 系統回報資料</h6>
                         </a>
                     </li>
                     <li>
-                        <a href="Advise">
+                        <a href="WebpageFeedback">
 
                             <h6>✉ 網頁意見回饋資料表</h6>
                         </a>
                     </li>
                     <li>
-                        <a href="identity">
-
-                            <h6>👥 身分驗證資料</h6>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="products">
+                        <a href="Product">
 
                             <h6>👕 商品</h6>
                         </a>
                     </li>
-                    <li>
-                        <a href="proreclist">
 
-                            <h6>🛍 商品推薦表</h6>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="peoplehead">
-
-                            <h6>🧍‍ 虛擬人像</h6>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="douctment">
-
-                            <h6>📱 貼文管理</h6>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="clothes">
-
-                            <h6>👗 穿搭資料</h6>
-                        </a>
-                    </li>
                     <li class="active-pro">
 
                         <p>&nbsp;&nbsp;&copy;@DateTime.Now.Year - 晴穿搭</p>
@@ -149,20 +120,8 @@
                                         使用守則
                                     </p>
                                 </a>
-                            <li class="nav-item btn-rotate dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                                    <p>
-                                        登入
-                                    </p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="Index3">管理員</a>
-                                    <a class="dropdown-item" href="Index">會員</a>
-                                </div>
-                            </li>
                             <li class="nav-item">
-                                <a class="nav-link btn-rotate" href="Index3">
+                                <a class="nav-link btn-rotate" href="AdminLogin">
 
                                     <p>
                                         登出
@@ -181,15 +140,18 @@
                                 <table id="myTable" class="display">
                                     <thead>
                                         <tr style="background-color:#f0f8ff;">
-                                            @Html.ActionLink("新增公告事項 ", "announcementcreate", new { @class = "btn btn - primary btn - round" })
+                                            @Html.ActionLink("新增公告事項 ", "Announcementcreate", new { @class = "btn btn - primary btn - round" })
                                             <th>
-                                                @Html.DisplayNameFor(model => model.管理員編號)
+                                               管理員帳號
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.會員帳號)
+                                                會員帳號
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.系統公告)
+                                                公告事項
+                                            </th>
+                                            <th>
+                                                公告日期
                                             </th>
                                             <th></th>
                                         </tr>
@@ -197,23 +159,26 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.管理員編號)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.會員帳號)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.系統公告)
-                                                </td>
-                                                <td>
-                                                    @Html.ActionLink("📃", "Edit", new { account = item.管理員編號 })
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Aaccount)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Account)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SystemAnnounce)
+                                            </td>
+                                            <td>
+                                                @DateTime.Parse(item.Date.ToString()).ToShortDateString()
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("📃", "AnnouncementEdit", new { announce = item.Aaccount })
 
-                                                    @Html.ActionLink("❌", "Delete", new { account = item.管理員編號 },
-                                                    new { onclick = "return confirm('確定刪除嗎?');" })
-                                                </td>
-                                            </tr>
+                                                @Html.ActionLink("❌", "AnnouncementDelete", new { announce = item.Aaccount },
+                                                new { onclick = "return confirm('確定刪除嗎?');" })
+                                            </td>
+                                        </tr>
                                         }
                                     </tbody>
                                 </table>

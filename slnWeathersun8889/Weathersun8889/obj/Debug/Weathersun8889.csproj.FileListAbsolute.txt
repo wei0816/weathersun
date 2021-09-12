@@ -495,3 +495,5 @@ C:\git-repo\weathersun\slnWeathersun8889\Weathersun8889\obj\Debug\Weathersun8889
 C:\git-repo\weathersun\slnWeathersun8889\Weathersun8889\obj\Debug\Weathersun8889.csproj.CopyComplete
 C:\git-repo\weathersun\slnWeathersun8889\Weathersun8889\obj\Debug\Weathersun8889.dll
 C:\git-repo\weathersun\slnWeathersun8889\Weathersun8889\obj\Debug\Weathersun8889.pdb
+C:\git-repo\weathersun\slnWeathersun8889\Weathersun8889\bin\Newtonsoft.Json.dll
+C:\git-repo\weathersun\slnWeathersun8889\Weathersun8889\bin\Newtonsoft.Json.xml

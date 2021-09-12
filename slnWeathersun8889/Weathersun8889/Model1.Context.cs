@@ -13,10 +13,10 @@ namespace Weathersun8889
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DatabaseWSEntities24 : DbContext
+    public partial class WeathersunEntities : DbContext
     {
-        public DatabaseWSEntities24()
-            : base("name=DatabaseWSEntities24")
+        public WeathersunEntities()
+            : base("name=WeathersunEntities")
         {
         }
     
@@ -25,17 +25,13 @@ namespace Weathersun8889
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<公告事項> 公告事項 { get; set; }
-        public virtual DbSet<身分驗證資料> 身分驗證資料 { get; set; }
-        public virtual DbSet<商品> 商品 { get; set; }
-        public virtual DbSet<商品推薦表> 商品推薦表 { get; set; }
-        public virtual DbSet<貼文> 貼文 { get; set; }
-        public virtual DbSet<會員> 會員 { get; set; }
-        public virtual DbSet<管理員> 管理員 { get; set; }
-        public virtual DbSet<網頁意見回饋資料表> 網頁意見回饋資料表 { get; set; }
-        public virtual DbSet<Hashtag> Hashtag { get; set; }
-        public virtual DbSet<系統回報資料> 系統回報資料 { get; set; }
-        public virtual DbSet<穿搭資料> 穿搭資料 { get; set; }
-        public virtual DbSet<虛擬人像> 虛擬人像 { get; set; }
+        public virtual DbSet<Admin> Admin { get; set; }
+        public virtual DbSet<Announcement> Announcement { get; set; }
+        public virtual DbSet<Calendar> Calendar { get; set; }
+        public virtual DbSet<Member> Member { get; set; }
+        public virtual DbSet<MemberFeedback> MemberFeedback { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<WebpageFeedback> WebpageFeedback { get; set; }
     }
 }
