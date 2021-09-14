@@ -95,7 +95,49 @@ namespace Weathersun8889.Controllers
         {
             return View();
         }
-        
+        public ActionResult Calendar()  //日曆
+        {
+            string Account = "";
+            if (Session["Member"] != null)
+                Account = ((Member)Session["Member"]).Account;
+            else
+            {
+                Account = "尚未登入";
+            }
+            var calList = db.Calendar.Where(m => m.Account == Account).ToList();
+            string str = "";
+            for (int i = 0; i < calList.Count; i++)
+            {
+                var cal = calList[i];
+                string temp = string.Format("title:'{0}',start:'{1}-{2}-{3}'",
+                    cal.WearNote, cal.Cdate.Year, cal.Cdate.Month.ToString("00"), cal.Cdate.Day.ToString("00"));
+                if (i < calList.Count - 1)
+                    str += "{" + temp + "},";
+                else
+                    str += "{" + temp + "}";
+            }
+            //str = string.Format("title:'{0}',start:'{1}'", "Long Event", "2021-09-10");
+            str = "events: [" + str + "]";
+            ViewBag.calList = str;
+            return View();
+        }
+        public string SaveEvent(string sday, string smonth, string syear, string eday, string emonth, string eyear, string Title)
+        {
+            string account = "";
+            if (Session["Member"] != null)
+                account = ((Member)Session["Member"]).Account;
+            else
+                account = "尚未登入";
+            string str = string.Format("儲存成功!\n開始時間:{0}/{1}/{2}\n結束時間:{3}/{4}/{5}\n標題{6}",
+                syear, smonth, sday, eyear, emonth, eday, Title, account);
+            Calendar todo = new Calendar();
+            todo.Account = account;
+            todo.WearNote = Title;
+            todo.Cdate = DateTime.Parse(syear + "/" + smonth + "/" + sday);
+            db.Calendar.Add(todo);
+            db.SaveChanges();
+            return str;
+        }
         public ActionResult Weather()  //天氣
         {
             return View();
@@ -388,27 +430,6 @@ namespace Weathersun8889.Controllers
             pro.ProPic = ProPic;
             db.SaveChanges();
             return RedirectToAction("Product");
-        }
-        public ActionResult Calendar()  //日曆
-        {
-            return View();
-        }
-        public string SaveEvent(string sday, string smonth, string syear, string eday, string emonth, string eyear, string Title)
-        {
-            string account = "";
-            if (Session["Member"] != null)
-                account = ((Member)Session["Member"]).Account;
-            else
-                account = "尚未登入";
-            string str = string.Format("傳送成功, 請在此存DB\n開始時間:{0}/{1}/{2}\n結束時間:{3}/{4}/{5}\n標題{6}\n帳號:{7}",
-                syear, smonth, sday, eyear, emonth, eday, Title, account);
-            Calendar todo = new Calendar();
-            todo.Account = account;
-            todo.WearNote = Title;
-            todo.Cdate = DateTime.Parse(syear + "/" + smonth + "/" + sday);
-            db.Calendar.Add(todo);
-            db.SaveChanges();
-            return str;
         }
     }
 }

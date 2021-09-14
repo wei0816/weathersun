@@ -12,23 +12,17 @@
     <title>
         晴穿搭
     </title>
-    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="~/css/styles.css" rel="stylesheet" />
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link href='~/lib/main.css' rel='stylesheet' />
-    <link rel="stylesheet" href="~/background.css">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.js"></script>
-    <script src='~/lib/main.js'></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <script>
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -40,53 +34,144 @@
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
                 },
-                initialDate: '2020-09-12',
+                initialDate: '2021-09-03',
                 navLinks: true, // can click day/week names to navigate views
                 businessHours: true, // display business hours
                 editable: true,
                 selectable: true,
                 handleWindowResize: true,
-                 select: function(arg) {
-        var title = prompt('Event Title:');
-        if (title) {
-          calendar.addEvent({
-            title: title,
-            start: arg.start,
-            end: arg.end,
-            allDay: arg.allDay
-          })
-        }
-        calendar.unselect()
-      },
-            });
+                select: function (arg) {
+                    var title = prompt('穿搭紀錄:');
+                    if (title) {
+                        calendar.addEvent({
+                            title: title,
+                            start: arg.start,
+                            end: arg.end,
+                            allDay: arg.allDay
 
+                        })
+
+                        var sday = arg.start.getDate();       // yields date
+                        var smonth = arg.start.getMonth() + 1;    // yields month (add one as '.getMonth()' is zero indexed)
+                        var syear = arg.start.getFullYear();  // yields year
+                        var eday = arg.end.getDate();       // yields date
+                        var emonth = arg.end.getMonth() + 1;    // yields month (add one as '.getMonth()' is zero indexed)
+                        var eyear = arg.end.getFullYear();  // yields year
+                        $.ajax({
+                            type: 'Get',
+                            url: 'SaveEvent',
+                            data: { sday: sday, smonth: smonth, syear: syear, eday: eday, emonth: emonth, eyear: eyear, Title: title },
+                            success: function (msg) {
+                                alert('Data Saved: ' + msg);
+                            }
+                        });
+                    }
+                    calendar.unselect()
+                },
+
+                @Html.Raw(ViewBag.calList)
+            });
             calendar.render();
         });
+
+
     </script>
 
     <style>
-
-        body {
-            margin: 40px 10px;
-            padding: 0;
-            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-            font-size: 14px;
-        }
-
         #calendar {
             max-width: 900px;
             margin: 0 auto;
-            background: #FEFFE2;
+            background: #f5f0df;
         }
     </style>
 </head>
-<body>
-    <div class="bg">
-        <img src="~/img/bg4.png">
+<body style="background-color:beige">
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <div class="row">
+                    <img width="55" src="~/img/logo-sun.PNG">
+                    <h3><strong>Weathersun</strong></h3>
+                </div>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question"></i>
+                        FAQ
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-paper-plane"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn ">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Welcome" style="font-family:微軟正黑體"><b>首頁</b></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="Calendar" style="font-family:微軟正黑體"><b>我的日記</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Weather" style="font-family:微軟正黑體"><b>天氣</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="font-family:微軟正黑體"><b>新聞</b></a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="Shop" style="font-family:微軟正黑體"><b>商店</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="MemberLogin" style="font-family:微軟正黑體"><b>登出</b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id='calendar'></div>
+        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <div id='calendar'></div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
 
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
 </body>
 </html>
-
