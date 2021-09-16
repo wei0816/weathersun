@@ -31,7 +31,6 @@ namespace Weathersun8889
         public virtual DbSet<Member> Member { get; set; }
         public virtual DbSet<MemberFeedback> MemberFeedback { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<WebpageFeedback> WebpageFeedback { get; set; }
     }
 }

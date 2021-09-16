@@ -28,7 +28,6 @@ namespace Weathersun8889
         public string Password { get; set; }
         public System.DateTime Birdate { get; set; }
         public string Location { get; set; }
-        public string MemberEmail { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Announcement> Announcement { get; set; }
