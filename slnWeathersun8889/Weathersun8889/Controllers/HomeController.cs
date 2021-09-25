@@ -333,7 +333,6 @@ namespace Weathersun8889.Controllers
             return RedirectToAction("Product");
         }
 
-
         public ActionResult MemberSignup()  //會員註冊
         {
             return View();

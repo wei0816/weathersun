@@ -131,8 +131,8 @@
     <Content Include="Scripts\cityData.js" />
     <Content Include="Scripts\WeatherScript.js" />
     <Content Include="sidebar.css" />
-    <Content Include="weatherstyle.css" />
-    <Content Include="weatherstyle_tablet.css" />
+    <Content Include="weatherstyle1.css" />
+    <Content Include="weatherstyle_tablet1.css" />
     <Content Include="WeathsunModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>WeathsunModel.edmx</DependentUpon>

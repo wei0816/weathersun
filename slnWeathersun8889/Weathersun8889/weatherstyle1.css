@@ -1,17 +1,36 @@
 ﻿
-.conta
+.nav ul copyright{
+    padding-top:300px;
+}
+.img{
+    margin-left:100px;
+}
+.font h1 {
+    font-size: 40px;
+    font-weight: 900;
+    color: #8b7c5e;
+    margin: 50px;
+}
+.weather h3 {
+    font-size: 30px;
+    font-weight: 900;
+    color: #fff;
+}
+
 .weather {
     float: left;
     width: 32.5%;
-    height: 250px;
+    height: 300px;
     background: #F8D899;
-    margin: 0 30px 0 0;
+    padding: 10px;
     position: relative;
+    border-radius: 20px;
+    box-shadow: 15px 25px 18px -10px rgba(0,0,0,0.15);
 }
 
 .weatherNow {
     width: 100%;
-    height: 130px;
+    height: 120px;
     position: relative;
     overflow: hidden;
     clear: both;
@@ -21,7 +40,7 @@
 .weatherNowDetail {
     float: left;
     width: 35%;
-    height: 130px;
+    height: 120px;
     position: relative;
 }
 
@@ -37,26 +56,26 @@
     }
 
 .weatherNowDetail {
-    padding: 45px 0 0 20px;
+    padding: 30px 0 0 20px;
 }
 
     .weatherNowDetail h2 {
-        font-size: 20px;
+        font-size: 30px;
         font-weight: 900;
         color: #fff;
-        margin: 0 0 5px 0;
     }
 
     .weatherNowDetail p {
-        font-size: 14px;
+        font-size: 20px;
+        font-weight: 600;
         color: #fff;
     }
 
 .weatherNowTemp {
     float: left;
     width: 30%;
-    height: 130px;
-    padding: 30px 0 0 0;
+    height: 100px;
+    padding: 20px 0 0 0;
 }
 
     .weatherNowTemp p {
@@ -73,6 +92,7 @@
     bottom: 0;
     clear: both;
     overflow: hidden;
+    border-radius: 0 0 20px 20px;
 }
 
     .weatherWeek p {
@@ -87,7 +107,7 @@
     width: 14.285714%;
     height: 120px;
     text-align: center;
-    border-right: 1px solid #a3a3a3;
+    border-right: 1px solid #fcf7ef;
 }
 
 .weatherWeekDayLast {
@@ -107,4 +127,3 @@
         width: 100%;
         height: auto;
     }
-
