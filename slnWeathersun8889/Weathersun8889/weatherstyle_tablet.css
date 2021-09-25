@@ -1,0 +1,25 @@
+﻿
+
+.weather {
+    float: none;
+    width: 100%;
+    margin: 0 0 24px 0;
+}
+
+.weatherNowIcon,
+.weatherNowDetail {
+    width: 40%;
+}
+
+    .weatherNowIcon img {
+        width: 50%;
+    }
+
+.weatherNowTemp {
+    width: 20%;
+}
+
+.weatherWeek p {
+    line-height: 2;
+}
+

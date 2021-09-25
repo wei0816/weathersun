@@ -10,13 +10,10 @@
         晴穿搭
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <!-- CSS Files -->
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="~/Content/demo/demo.css" rel="stylesheet" />
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -160,10 +157,6 @@
                                             <th>
                                                 居住地點
                                             </th>
-                                            <th>
-                                                Email
-                                            </th>
-
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -188,9 +181,6 @@
                                                 </td>
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.Location)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.MemberEmail)
                                                 </td>
                                                 <td>
                                                     @Html.ActionLink("❌", "MemberDelete", new { account = item.Account },
@@ -219,31 +209,6 @@
             </div>
         </div>
     </div>
-    <!--   Core JS Files   -->
-    <script src="~/Scripts//js/core/jquery.min.js"></script>
-    <script src="~/Scripts//js/core/popper.min.js"></script>
-    <script src="~/Scripts//js/core/bootstrap.min.js"></script>
-    <script src="~/Scripts//js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Chart JS -->
-    <script src="~/Scripts//js/plugins/chartjs.min.js"></script>
-    <!--  Notifications Plugin    -->
-    <script src="~/Scripts//js/plugins/bootstrap-notify.js"></script>
-    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="~/Scripts//js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-    <script src="~/Scripts//demo/demo.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-            demo.initChartsPages();
-        });
-    </script>
 </body>
 
 

@@ -262,7 +262,6 @@ namespace Weathersun8889.Controllers
                  .Where(m => m.Aaccount == Aaccount).FirstOrDefault();
             adm.Aaccount = Aaccount;
             adm.Apassword = Apassword;
-            adm.Aemail = Aemail;
             db.SaveChanges();
             ViewBag.Msg = "修改成功!";
             return View();

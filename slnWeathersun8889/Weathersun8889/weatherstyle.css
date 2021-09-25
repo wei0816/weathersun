@@ -1,0 +1,110 @@
+﻿
+.conta
+.weather {
+    float: left;
+    width: 32.5%;
+    height: 250px;
+    background: #F8D899;
+    margin: 0 30px 0 0;
+    position: relative;
+}
+
+.weatherNow {
+    width: 100%;
+    height: 130px;
+    position: relative;
+    overflow: hidden;
+    clear: both;
+}
+
+.weatherNowIcon,
+.weatherNowDetail {
+    float: left;
+    width: 35%;
+    height: 130px;
+    position: relative;
+}
+
+    .weatherNowIcon img {
+        width: 80%;
+        height: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+.weatherNowDetail {
+    padding: 45px 0 0 20px;
+}
+
+    .weatherNowDetail h2 {
+        font-size: 20px;
+        font-weight: 900;
+        color: #fff;
+        margin: 0 0 5px 0;
+    }
+
+    .weatherNowDetail p {
+        font-size: 14px;
+        color: #fff;
+    }
+
+.weatherNowTemp {
+    float: left;
+    width: 30%;
+    height: 130px;
+    padding: 30px 0 0 0;
+}
+
+    .weatherNowTemp p {
+        font-size: 64px;
+        color: #fff;
+    }
+
+.weatherWeek {
+    width: 100%;
+    height: 120px;
+    background: #fad17f;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+    .weatherWeek p {
+        font-size: 14px;
+        font-weight: 900;
+        color: #fff;
+        line-height: 2.5;
+    }
+
+.weatherWeekDay {
+    float: left;
+    width: 14.285714%;
+    height: 120px;
+    text-align: center;
+    border-right: 1px solid #a3a3a3;
+}
+
+.weatherWeekDayLast {
+    border-right: none;
+}
+
+.weatherWeekDayFirst {
+    background: #F8D899;
+}
+
+.weatherWeekIcon {
+    width: 70%;
+    margin: auto;
+}
+
+    .weatherWeekIcon img {
+        width: 100%;
+        height: auto;
+    }
+

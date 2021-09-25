@@ -10,13 +10,10 @@
         晴穿搭
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <!-- CSS Files -->
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="~/Content/demo/demo.css" rel="stylesheet" />
 </head>
 <body class="">
@@ -148,24 +145,16 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-10">帳號</label>
                                             <div class="col-md-10">
-                                                @Html.EditorFor(model => model.Aaccount, new { htmlAttributes = new { @class = "form-control" ,placeholder = "請輸入帳號" ,value = "" ,required = "required" } })
+                                                @Html.EditorFor(model => model.Aaccount, new { htmlAttributes = new { @class = "form-control", placeholder = "sample@xxxxx.com", value = "", required = "required" } })
                                                 @Html.ValidationMessageFor(model => model.Aaccount, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-md-10">密碼</label>                                            
+                                            <label class="control-label col-md-10">密碼</label>
                                             <div class="col-md-10">
                                                 @Html.EditorFor(model => model.Apassword, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入密碼", value = "", required = "required" } })
                                                 @Html.ValidationMessageFor(model => model.Apassword, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">Email</label>                                            
-                                            <div class="col-md-10">
-                                                @Html.EditorFor(model => model.Aemail, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入Email", value = "", required = "required" } })
-                                                @Html.ValidationMessageFor(model => model.Aemail, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
 
@@ -192,6 +181,7 @@
                 </div>
             </div>
             <h5>&nbsp;</h5>
+            <h2>&nbsp;</h2>
             <div class="credits ml-auto">
                 <div class="container body-content">
                     <hr />
@@ -202,7 +192,4 @@
             </div>
         </div>
         </div>
-        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-        <script src="~/Scripts/jquery.validate.min.js"></script>
-        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     </body>
