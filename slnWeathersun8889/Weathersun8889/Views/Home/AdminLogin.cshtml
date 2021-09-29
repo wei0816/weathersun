@@ -9,6 +9,8 @@
     <link rel="icon" type="image/png" href="~/img/weathersun.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>晴穿搭</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
     <link rel="stylesheet" href="~/background.css">
     <link rel="stylesheet" href="https://s1.pstatp.com/cdn/expire-1-y/tailwindcss/2.0.3/tailwind.min.css">
     <link rel="stylesheet" href="https://s3.pstatp.com/cdn/expire-1-y/MaterialDesign-Webfont/5.9.55/css/materialdesignicons.min.css">
@@ -19,6 +21,13 @@
 }
 
 <body class="dwo h-screen overflow-hidden flex items-center justify-center">
+    <nav class="navbar navbar-expand-lg text-uppercase fixed-top">
+        <div class="container">
+            <a href="WebHomepage">
+                <img width="80" src="~/img/logo-sun.PNG">
+            </a>
+        </div>
+    </nav>
     <form action="@Url.Action("AdminLogin")" method="post">
         <div class="bg">
             <img src="~/img/bg4.png">
