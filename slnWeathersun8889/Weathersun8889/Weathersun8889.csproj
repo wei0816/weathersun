@@ -133,15 +133,15 @@
     <Content Include="sidebar.css" />
     <Content Include="weatherstyle1.css" />
     <Content Include="weatherstyle_tablet1.css" />
-    <Content Include="WeathsunModel.Context.tt">
+    <Content Include="Weathersun.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WeathsunModel.edmx</DependentUpon>
-      <LastGenOutput>WeathsunModel.Context.cs</LastGenOutput>
+      <DependentUpon>Weathersun.edmx</DependentUpon>
+      <LastGenOutput>Weathersun.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="WeathsunModel.tt">
+    <Content Include="Weathersun.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WeathsunModel.edmx</DependentUpon>
-      <LastGenOutput>WeathsunModel.cs</LastGenOutput>
+      <DependentUpon>Weathersun.edmx</DependentUpon>
+      <LastGenOutput>Weathersun.cs</LastGenOutput>
     </Content>
     <Content Include="welcome1.css" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
@@ -151,46 +151,49 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs">
-      <DependentUpon>WeathsunModel.tt</DependentUpon>
+      <DependentUpon>Weathersun.tt</DependentUpon>
     </Compile>
     <Compile Include="Announcement.cs">
-      <DependentUpon>WeathsunModel.tt</DependentUpon>
+      <DependentUpon>Weathersun.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Calendar.cs">
-      <DependentUpon>WeathsunModel.tt</DependentUpon>
+      <DependentUpon>Weathersun.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Member.cs">
-      <DependentUpon>WeathsunModel.tt</DependentUpon>
+      <DependentUpon>Weathersun.tt</DependentUpon>
     </Compile>
     <Compile Include="MemberFeedback.cs">
-      <DependentUpon>WeathsunModel.tt</DependentUpon>
+      <DependentUpon>Weathersun.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>WeathsunModel.tt</DependentUpon>
+      <DependentUpon>Weathersun.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeathsunModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WeathsunModel.Context.tt</DependentUpon>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Weathersun.tt</DependentUpon>
     </Compile>
-    <Compile Include="WeathsunModel.cs">
+    <Compile Include="Weathersun.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WeathsunModel.tt</DependentUpon>
+      <DependentUpon>Weathersun.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="WeathsunModel.Designer.cs">
+    <Compile Include="Weathersun.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WeathsunModel.edmx</DependentUpon>
+      <DependentUpon>Weathersun.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Weathersun.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Weathersun.edmx</DependentUpon>
     </Compile>
     <Compile Include="WebpageFeedback.cs">
-      <DependentUpon>WeathsunModel.tt</DependentUpon>
+      <DependentUpon>Weathersun.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -221,17 +224,17 @@
     <Content Include="Views\Home\Announcementcreate.cshtml" />
     <Content Include="Views\Home\AdminCreate.cshtml" />
     <Content Include="Views\Home\ProductsCreate.cshtml" />
-    <Content Include="Views\Home\MemberSignup.cshtml" />
     <Content Include="Views\Home\AnnouncementEdit.cshtml" />
     <Content Include="Views\Home\ProductEdit.cshtml" />
     <Content Include="Views\Home\WebpageFeedback.cshtml" />
     <Content Include="Views\Home\AdminEdit.cshtml" />
-    <EntityDeploy Include="WeathsunModel.edmx">
+    <Content Include="Views\Home\MemberSignup.cshtml" />
+    <EntityDeploy Include="Weathersun.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WeathsunModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Weathersun.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="WeathsunModel.edmx.diagram">
-      <DependentUpon>WeathsunModel.edmx</DependentUpon>
+    <Content Include="Weathersun.edmx.diagram">
+      <DependentUpon>Weathersun.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

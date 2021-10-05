@@ -11,7 +11,8 @@ namespace Weathersun8889
 {
     using System;
     using System.Collections.Generic;
-    
+
+
     public partial class Member
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,6 +23,7 @@ namespace Weathersun8889
             this.MemberFeedback = new HashSet<MemberFeedback>();
         }
     
+        public int ID { get; set; }
         public string Account { get; set; }
         public string Gender { get; set; }
         public string Name { get; set; }

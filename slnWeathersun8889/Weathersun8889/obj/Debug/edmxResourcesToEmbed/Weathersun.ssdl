@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WeathersunModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Aaccount" />
+    </Key>
+    <Property Name="Anumber" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Aaccount" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="Apassword" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Announcement">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aaccount" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="Account" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="SystemAnnounce" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Calendar">
+    <Key>
+      <PropertyRef Name="CId" />
+    </Key>
+    <Property Name="CId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="WearNote" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="Account" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birdate" Type="date" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberFeedback">
+    <Key>
+      <PropertyRef Name="MID" />
+    </Key>
+    <Property Name="MID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="Feedback" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProId" />
+    </Key>
+    <Property Name="ProId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ProName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProCategory" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProShopName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProItemNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProPic" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="WebpageFeedback">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Feedback" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Announcem__Aacco__1D7B6025">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+    <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="Aaccount" />
+      </Principal>
+      <Dependent Role="Announcement">
+        <PropertyRef Name="Aaccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Announcem__Accou__29E1370A">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Account" />
+      </Principal>
+      <Dependent Role="Announcement">
+        <PropertyRef Name="Account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Calendar__Accoun__2BC97F7C">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="Calendar" Type="Self.Calendar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Account" />
+      </Principal>
+      <Dependent Role="Calendar">
+        <PropertyRef Name="Account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MemberFee__Accou__2AD55B43">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="MemberFeedback" Type="Self.MemberFeedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Account" />
+      </Principal>
+      <Dependent Role="MemberFeedback">
+        <PropertyRef Name="Account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WeathersunModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Announcement" EntityType="Self.Announcement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Calendar" EntityType="Self.Calendar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberFeedback" EntityType="Self.MemberFeedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WebpageFeedback" EntityType="Self.WebpageFeedback" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Announcem__Aacco__1D7B6025" Association="Self.FK__Announcem__Aacco__1D7B6025">
+      <End Role="Admin" EntitySet="Admin" />
+      <End Role="Announcement" EntitySet="Announcement" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Announcem__Accou__29E1370A" Association="Self.FK__Announcem__Accou__29E1370A">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Announcement" EntitySet="Announcement" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Calendar__Accoun__2BC97F7C" Association="Self.FK__Calendar__Accoun__2BC97F7C">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Calendar" EntitySet="Calendar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MemberFee__Accou__2AD55B43" Association="Self.FK__MemberFee__Accou__2AD55B43">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="MemberFeedback" EntitySet="MemberFeedback" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

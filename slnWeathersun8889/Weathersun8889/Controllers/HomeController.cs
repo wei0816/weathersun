@@ -5,6 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using System.Data;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Net;
+using System.Net.Mail;
+using System.Drawing;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data.Entity.Validation;
 
 namespace Weathersun8889.Controllers
 {
@@ -339,21 +347,21 @@ namespace Weathersun8889.Controllers
         }
 
         [HttpPost]
-        public ActionResult MemberSignup(Member account)  //會員產品物件屬性會對應至表單同名欄位，account這個參數的產品物
-                                                    //件屬性可接收表單欄位的資料
+        public ActionResult MemberSignup(Member account) //會員產品物件屬性會對應至表單同名欄位，account這個參數的產品物
+                                                         //件屬性可接收表單欄位的資料
         {
             if (ModelState.IsValid == false)
             {
                 return View();
             }
-            var mem = db.Member
-                 .Where(m => m.Account == account.Account)  //m是會員帳號的參數，m的會員帳號值等於account的會員帳號
-                                                            //值一樣的話，會拒絕存取
+            var acc = db.Member
+                 .Where(m => m.Account == account.Account)   //m是會員帳號的參數，m的會員帳號值等於account的會員帳號
+                                                             //值一樣的話，會拒絕存取
                  .FirstOrDefault();
-            if (mem == null)
+            if (acc == null)
             {
                 db.Member.Add(account);
-                db.SaveChanges(); 
+                db.SaveChanges();
                 ViewBag.Msg = "註冊成功!";
                 return View();
             }
