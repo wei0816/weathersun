@@ -18,7 +18,7 @@ namespace Weathersun8889.Controllers
 {
     public class HomeController : Controller
     {
-        WeathersunEntities db = new WeathersunEntities();
+        WeathersunEntities1 db = new WeathersunEntities1();
 
         public ActionResult AdminLogin()  //管理員登入
         {
@@ -129,6 +129,14 @@ namespace Weathersun8889.Controllers
             ViewBag.calList = str;
             return View();
         }
+        public ActionResult DeleteEvent( string Title) //刪除紀錄
+        {
+            var wear = db.Calendar
+               .Where(m => m.WearNote == Title).FirstOrDefault();
+            db.Calendar.Remove(wear);
+            db.SaveChanges();
+            return View();
+        }
         public string SaveEvent(string sday, string smonth, string syear, string eday, string emonth, string eyear, string Title)
         {
             string account = "";
@@ -136,7 +144,7 @@ namespace Weathersun8889.Controllers
                 account = ((Member)Session["Member"]).Account;
             else
                 account = "尚未登入";
-            string str = string.Format("儲存成功!\n開始時間:{0}/{1}/{2}\n結束時間:{3}/{4}/{5}\n標題{6}",
+            string str = string.Format("儲存成功!\n標題{6}",
                 syear, smonth, sday, eyear, emonth, eday, Title, account);
             Calendar todo = new Calendar();
             todo.Account = account;
@@ -347,20 +355,26 @@ namespace Weathersun8889.Controllers
         }
 
         [HttpPost]
-        public ActionResult MemberSignup(Member account) //會員產品物件屬性會對應至表單同名欄位，account這個參數的產品物
-                                                         //件屬性可接收表單欄位的資料
+        public ActionResult MemberSignup(string Account,string Gender,string Name,string Password,DateTime Birdate,string Location) 
+        //會員產品物件屬性會對應至表單同名欄位，account這個參數的產品物件屬性可接收表單欄位的資料
         {
             if (ModelState.IsValid == false)
             {
                 return View();
             }
-            var acc = db.Member
-                 .Where(m => m.Account == account.Account)   //m是會員帳號的參數，m的會員帳號值等於account的會員帳號
-                                                             //值一樣的話，會拒絕存取
+            var sign = db.Member
+                 .Where(m => m.Account == Account)   //m是會員帳號的參數，m的會員帳號值等於account的會員帳號值一樣的話，會拒絕存取
                  .FirstOrDefault();
-            if (acc == null)
+            if (sign == null)
             {
-                db.Member.Add(account);
+                Member mem = new Member();
+                mem.Account = Account;
+                mem.Gender = Gender;
+                mem.Name = Name;
+                mem.Password = Password;
+                mem.Birdate = Birdate;
+                mem.Location = Location;
+                db.Member.Add(mem);
                 db.SaveChanges();
                 ViewBag.Msg = "註冊成功!";
                 return View();

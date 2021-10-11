@@ -68,13 +68,29 @@
                     }
                     calendar.unselect()
                 },
+                eventClick: function (info) {
+                    var eventObj = info.event;
+                    var yes = confirm('確定刪除' + eventObj.title + '嗎？'); 
+                        $.ajax({
+                            type: "POST",
+                            url: 'DeleteEvent',
+                            data: { 'WearNote': eventObj.event},
+                            success: function (eventObj) {
+                                if (yes) {
+                                    eventObj.remove();
+                                }
+                            },
+                            error: function () {
+                                alert('Failed'); 
+                            }
+                        })
+                    
+                },
+             @Html.Raw(ViewBag.calList)
 
-                @Html.Raw(ViewBag.calList)
             });
             calendar.render();
         });
-
-
     </script>
 
     <style>

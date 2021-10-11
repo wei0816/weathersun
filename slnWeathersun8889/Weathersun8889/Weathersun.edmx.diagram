@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ee6eb631683642b8b7f5e5cd6fd52c24" Name="Diagram1">
+      <Diagram DiagramId="e814e1c258ff4f51a9db5af84ed4f6da" Name="Diagram1">
         <EntityTypeShape EntityType="WeathersunModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WeathersunModel.Announcement" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WeathersunModel.Calendar" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
@@ -14,9 +14,9 @@
         <EntityTypeShape EntityType="WeathersunModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WeathersunModel.WebpageFeedback" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
         <AssociationConnector Association="WeathersunModel.FK__Announcem__Aacco__1D7B6025" ManuallyRouted="false" />
-        <AssociationConnector Association="WeathersunModel.FK__Announcem__Accou__29E1370A" ManuallyRouted="false" />
-        <AssociationConnector Association="WeathersunModel.FK__Calendar__Accoun__2BC97F7C" ManuallyRouted="false" />
-        <AssociationConnector Association="WeathersunModel.FK__MemberFee__Accou__2AD55B43" ManuallyRouted="false" />
+        <AssociationConnector Association="WeathersunModel.FK__Announcem__Accou__2EA5EC27" ManuallyRouted="false" />
+        <AssociationConnector Association="WeathersunModel.FK__Calendar__Accoun__2F9A1060" ManuallyRouted="false" />
+        <AssociationConnector Association="WeathersunModel.FK__MemberFee__Accou__308E3499" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -228,7 +228,6 @@
     <Content Include="Views\Home\ProductEdit.cshtml" />
     <Content Include="Views\Home\WebpageFeedback.cshtml" />
     <Content Include="Views\Home\AdminEdit.cshtml" />
-    <Content Include="Views\Home\MemberSignup.cshtml" />
     <EntityDeploy Include="Weathersun.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Weathersun.Designer.cs</LastGenOutput>
@@ -236,6 +235,7 @@
     <Content Include="Weathersun.edmx.diagram">
       <DependentUpon>Weathersun.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Home\MemberSignup.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

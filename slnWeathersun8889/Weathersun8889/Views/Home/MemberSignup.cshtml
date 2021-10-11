@@ -8,12 +8,9 @@
     <link rel="icon" type="image/png" href="~/img/weathersun.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>晴穿搭</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/background.css">
     <link rel="stylesheet" href="https://s1.pstatp.com/cdn/expire-1-y/tailwindcss/2.0.3/tailwind.min.css">
     <link rel="stylesheet" href="https://s3.pstatp.com/cdn/expire-1-y/MaterialDesign-Webfont/5.9.55/css/materialdesignicons.min.css">
@@ -21,7 +18,6 @@
     <script src="https://s3.pstatp.com/cdn/expire-1-y/zxcvbn/4.4.2/zxcvbn.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@1,700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="image/favicon-1.ico" type="image/x-icon">
 </head>
 @{
     ViewBag.Title = "MemberSignup";
@@ -40,7 +36,7 @@
                         <h1 class=" text-3xl text-gray-400">WELCOME BACK!</h1>
                     </div>
                     <img src="~/img/signup.png" alt="..." width="350" />
-                    <a class="block w-full max-w-xs mx-auto bg-yellow-400 hover:bg-indigo-300 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold" href="Index" style="text-align:center">
+                    <a class="block w-full max-w-xs mx-auto bg-yellow-400 hover:bg-indigo-300 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold" href="MemberLogin" style="text-align:center">
                         登入
                     </a>
                 </div>
@@ -60,7 +56,7 @@
                                     <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                         <i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
                                     </div>
-                                    <input type="text" id="signupName" name="signupName" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-yellow-400" placeholder="請輸入用戶名" value="" required="required">
+                                    <input type="text" id="name" name="Name" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-yellow-400" placeholder="請輸入用戶名" value="" required="required">
                                 </div>
                             </div>
                             <div class="w-1/2 px-3 mb-5">
@@ -83,7 +79,7 @@
                                     <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                         <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
                                     </div>
-                                    <input type="email" id="signupAccount" name="signupAccount" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-yellow-400" placeholder="請輸入帳號" value="" required="required">
+                                    <input type="email" id="Account" name="Account" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-yellow-400" placeholder="請輸入帳號" value="" required="required">
                                 </div>
                             </div>
                             <div class="w-1/2 px-3 mb-5">
@@ -92,7 +88,7 @@
                                     <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                         <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                                     </div>
-                                    <input type="password" id="signupPwd" name="signupPwd" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-yellow-400" placeholder="請輸入密碼" value="" required="required">
+                                    <input type="password" id="signupPwd" name="Password" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-yellow-400" placeholder="請輸入密碼" value="" required="required">
                                 </div>
                             </div>
                         </div>
@@ -103,7 +99,7 @@
                                     <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                         <i class="mdi mdi-cake-variant text-gray-400 text-lg"></i>
                                     </div>
-                                    <input type="date" id="signupBirdate" name="signupBirdate" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-yellow-400" value="" required="required">
+                                    <input type="date" id="signupBirdate" name="Birdate" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-yellow-400" value="" required="required">
                                 </div>
                             </div>
                             <div class="w-1/2 px-3 mb-5">
@@ -112,7 +108,7 @@
                                     <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                         <i class="mdi mdi-map-marker-radius text-gray-400 text-lg"></i>
                                     </div>
-                                    <select id="signupLocation" name="signupLocation" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-yellow-400">
+                                    <select id="signupLocation" name="Location" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-yellow-400">
                                         <option value="基隆">基隆</option>
                                         <option value="台北">台北</option>
                                         <option value="新北">新北</option>
@@ -153,6 +149,3 @@
         </div>
     </div>
 </body>
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

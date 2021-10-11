@@ -13,10 +13,10 @@ namespace Weathersun8889
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WeathersunEntities : DbContext
+    public partial class WeathersunEntities1 : DbContext
     {
-        public WeathersunEntities()
-            : base("name=WeathersunEntities")
+        public WeathersunEntities1()
+            : base("name=WeathersunEntities1")
         {
         }
     

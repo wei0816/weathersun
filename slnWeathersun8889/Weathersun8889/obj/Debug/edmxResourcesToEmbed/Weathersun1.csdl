@@ -15,45 +15,45 @@
     </Key>
     <Property Name="AID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Aaccount" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Account" Type="String" MaxLength="80" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="SystemAnnounce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Admin" Relationship="Self.FK__Announcem__Aacco__1D7B6025" FromRole="Announcement" ToRole="Admin" />
-    <NavigationProperty Name="Member" Relationship="Self.FK__Announcem__Accou__2EA5EC27" FromRole="Announcement" ToRole="Member" />
+    <NavigationProperty Name="Member" Relationship="Self.FK__Announcem__Accou__29E1370A" FromRole="Announcement" ToRole="Member" />
   </EntityType>
   <EntityType Name="Calendar">
     <Key>
       <PropertyRef Name="CId" />
     </Key>
     <Property Name="CId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Account" Type="String" MaxLength="80" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="WearNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Cdate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Member" Relationship="Self.FK__Calendar__Accoun__2F9A1060" FromRole="Calendar" ToRole="Member" />
+    <NavigationProperty Name="Member" Relationship="Self.FK__Calendar__Accoun__2BC97F7C" FromRole="Calendar" ToRole="Member" />
   </EntityType>
   <EntityType Name="Member">
     <Key>
       <PropertyRef Name="Account" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Account" Type="String" MaxLength="80" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Birdate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Announcement" Relationship="Self.FK__Announcem__Accou__2EA5EC27" FromRole="Member" ToRole="Announcement" />
-    <NavigationProperty Name="Calendar" Relationship="Self.FK__Calendar__Accoun__2F9A1060" FromRole="Member" ToRole="Calendar" />
-    <NavigationProperty Name="MemberFeedback" Relationship="Self.FK__MemberFee__Accou__308E3499" FromRole="Member" ToRole="MemberFeedback" />
+    <NavigationProperty Name="Announcement" Relationship="Self.FK__Announcem__Accou__29E1370A" FromRole="Member" ToRole="Announcement" />
+    <NavigationProperty Name="Calendar" Relationship="Self.FK__Calendar__Accoun__2BC97F7C" FromRole="Member" ToRole="Calendar" />
+    <NavigationProperty Name="MemberFeedback" Relationship="Self.FK__MemberFee__Accou__2AD55B43" FromRole="Member" ToRole="MemberFeedback" />
   </EntityType>
   <EntityType Name="MemberFeedback">
     <Key>
       <PropertyRef Name="MID" />
     </Key>
     <Property Name="MID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Account" Type="String" MaxLength="80" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="Feedback" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Member" Relationship="Self.FK__MemberFee__Accou__308E3499" FromRole="MemberFeedback" ToRole="Member" />
+    <NavigationProperty Name="Member" Relationship="Self.FK__MemberFee__Accou__2AD55B43" FromRole="MemberFeedback" ToRole="Member" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -99,7 +99,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Announcem__Accou__2EA5EC27">
+  <Association Name="FK__Announcem__Accou__29E1370A">
     <End Role="Member" Type="Self.Member" Multiplicity="1" />
     <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
     <ReferentialConstraint>
@@ -111,7 +111,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Calendar__Accoun__2F9A1060">
+  <Association Name="FK__Calendar__Accoun__2BC97F7C">
     <End Role="Member" Type="Self.Member" Multiplicity="1" />
     <End Role="Calendar" Type="Self.Calendar" Multiplicity="*" />
     <ReferentialConstraint>
@@ -123,7 +123,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__MemberFee__Accou__308E3499">
+  <Association Name="FK__MemberFee__Accou__2AD55B43">
     <End Role="Member" Type="Self.Member" Multiplicity="1" />
     <End Role="MemberFeedback" Type="Self.MemberFeedback" Multiplicity="*" />
     <ReferentialConstraint>
@@ -148,15 +148,15 @@
       <End Role="Admin" EntitySet="Admin" />
       <End Role="Announcement" EntitySet="Announcement" />
     </AssociationSet>
-    <AssociationSet Name="FK__Announcem__Accou__2EA5EC27" Association="Self.FK__Announcem__Accou__2EA5EC27">
+    <AssociationSet Name="FK__Announcem__Accou__29E1370A" Association="Self.FK__Announcem__Accou__29E1370A">
       <End Role="Member" EntitySet="Member" />
       <End Role="Announcement" EntitySet="Announcement" />
     </AssociationSet>
-    <AssociationSet Name="FK__Calendar__Accoun__2F9A1060" Association="Self.FK__Calendar__Accoun__2F9A1060">
+    <AssociationSet Name="FK__Calendar__Accoun__2BC97F7C" Association="Self.FK__Calendar__Accoun__2BC97F7C">
       <End Role="Member" EntitySet="Member" />
       <End Role="Calendar" EntitySet="Calendar" />
     </AssociationSet>
-    <AssociationSet Name="FK__MemberFee__Accou__308E3499" Association="Self.FK__MemberFee__Accou__308E3499">
+    <AssociationSet Name="FK__MemberFee__Accou__2AD55B43" Association="Self.FK__MemberFee__Accou__2AD55B43">
       <End Role="Member" EntitySet="Member" />
       <End Role="MemberFeedback" EntitySet="MemberFeedback" />
     </AssociationSet>
