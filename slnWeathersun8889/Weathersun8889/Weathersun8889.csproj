@@ -236,6 +236,9 @@
       <DependentUpon>Weathersun.edmx</DependentUpon>
     </Content>
     <Content Include="Views\Home\MemberSignup.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Home\ForgetPassword.cshtml" />
+    <Content Include="Views\Home\PasswordReset.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -74,7 +74,7 @@
                         $.ajax({
                             type: "POST",
                             url: 'DeleteEvent',
-                            data: { 'WearNote': eventObj.event},
+                            data: { 'WearNote': eventObj.Title },
                             success: function (eventObj) {
                                 if (yes) {
                                     eventObj.remove();
@@ -97,7 +97,7 @@
         #calendar {
             max-width: 900px;
             margin: 0 auto;
-            background: #f5f0df;
+            background: beige;
         }
     </style>
 </head>
@@ -157,7 +157,7 @@
                                 <a class="nav-link" href="Weather" style="font-family:微軟正黑體"><b>天氣</b></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" style="font-family:微軟正黑體"><b>新聞</b></a>
+                                <a class="nav-link" href="News" style="font-family:微軟正黑體"><b>新聞</b></a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="Shop" style="font-family:微軟正黑體"><b>商店</b></a>

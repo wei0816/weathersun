@@ -103,6 +103,14 @@ namespace Weathersun8889.Controllers
         {
             return View();
         }
+        public ActionResult ForgetPassword()  //忘記密碼
+        {
+            return View();
+        }
+        public ActionResult PasswordReset()  //密碼重設
+        {
+            return View();
+        }
         public ActionResult Calendar()  //日曆
         {
             string Account = "";
@@ -131,9 +139,9 @@ namespace Weathersun8889.Controllers
         }
         public ActionResult DeleteEvent( string Title) //刪除紀錄
         {
-            var wear = db.Calendar
+            var title = db.Calendar
                .Where(m => m.WearNote == Title).FirstOrDefault();
-            db.Calendar.Remove(wear);
+            db.Calendar.Remove(title);
             db.SaveChanges();
             return View();
         }
@@ -155,6 +163,10 @@ namespace Weathersun8889.Controllers
             return str;
         }
         public ActionResult Weather()  //天氣
+        {
+            return View();
+        }
+        public ActionResult News()  //新聞
         {
             return View();
         }

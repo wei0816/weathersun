@@ -46,7 +46,7 @@
                         <h6 class="mt-2">HELLO NEW FRIEND!</h6>
                     </div>
                     @using (Html.BeginForm())
-                    {
+                    { 
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="flex -mx-3">
