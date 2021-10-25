@@ -50,10 +50,10 @@
                             allDay: arg.allDay
 
                         })
-
                         var sday = arg.start.getDate();       // yields date
                         var smonth = arg.start.getMonth() + 1;    // yields month (add one as '.getMonth()' is zero indexed)
                         var syear = arg.start.getFullYear();  // yields year
+
                         var eday = arg.end.getDate();       // yields date
                         var emonth = arg.end.getMonth() + 1;    // yields month (add one as '.getMonth()' is zero indexed)
                         var eyear = arg.end.getFullYear();  // yields year
@@ -65,32 +65,29 @@
                                 alert('Data Saved: ' + msg);
                             }
                         });
-                    }
-                    calendar.unselect()
+                    };
+                    calendar.unselect();
                 },
+
                 eventClick: function (info) {
                     var eventObj = info.event;
-                    var yes = confirm('確定刪除' + eventObj.title + '嗎？'); 
+                    var yes = confirm('確定刪除' + eventObj.title + '嗎？');
+                    if (yes) {
+                        eventObj.remove();
+                        alert('Data Deleted');
                         $.ajax({
-                            type: "POST",
+                            type: "GET",
                             url: 'DeleteEvent',
-                            data: { 'WearNote': eventObj.Title },
-                            success: function (eventObj) {
-                                if (yes) {
-                                    eventObj.remove();
-                                }
-                            },
-                            error: function () {
-                                alert('Failed'); 
-                            }
-                        })
-                    
+                            data: { Title: eventObj.title },
+                        });
+                    };
                 },
-             @Html.Raw(ViewBag.calList)
-
+            @Html.Raw(ViewBag.calList)
             });
             calendar.render();
         });
+
+
     </script>
 
     <style>
@@ -157,7 +154,7 @@
                                 <a class="nav-link" href="Weather" style="font-family:微軟正黑體"><b>天氣</b></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="News" style="font-family:微軟正黑體"><b>新聞</b></a>
+                                <a class="nav-link" href="#" style="font-family:微軟正黑體"><b>新聞</b></a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="Shop" style="font-family:微軟正黑體"><b>商店</b></a>
