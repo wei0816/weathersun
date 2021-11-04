@@ -131,6 +131,8 @@
     <Content Include="Scripts\cityData.js" />
     <Content Include="Scripts\WeatherScript.js" />
     <Content Include="sidebar.css" />
+    <Content Include="slider.css" />
+    <Content Include="slider1.css" />
     <Content Include="weatherstyle1.css" />
     <Content Include="weatherstyle_tablet1.css" />
     <Content Include="Weathersun.Context.tt">
@@ -270,7 +272,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49845</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44392/140.137.61.138</IISUrl>
+          <IISUrl>https://localhost:44392</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

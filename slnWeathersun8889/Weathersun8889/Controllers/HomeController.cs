@@ -14,11 +14,13 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data.Entity.Validation;
 
+
 namespace Weathersun8889.Controllers
 {
     public class HomeController : Controller
     {
         WeathersunEntities1 db = new WeathersunEntities1();
+        
 
         public ActionResult AdminLogin()  //管理員登入
         {
@@ -103,8 +105,40 @@ namespace Weathersun8889.Controllers
         {
             return View();
         }
+
         public ActionResult ForgetPassword()  //忘記密碼
         {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ForgetPassword(string email, string activationCode)  //忘記密碼
+        {
+            var verifyUrl = "/Advance/ResetPwd/" + activationCode;
+            var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
+
+            var fromEmail = new MailAddress("weathersun8889@gmail.com");
+            var toEmail = new MailAddress(email);
+            var fromEmailPassword = "sunny8889";//Replace with actual password
+            string subject = "重設密碼";
+            string body = "<h4>您好!這是來自晴穿搭的訊息</h4><br/>請按下下列連結來重設密碼";
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
+            };
+
+            using (var message = new MailMessage(fromEmail, toEmail)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+
+            smtp.Send(message);
             return View();
         }
         public ActionResult PasswordReset()  //密碼重設
