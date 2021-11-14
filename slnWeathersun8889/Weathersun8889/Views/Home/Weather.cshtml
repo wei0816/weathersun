@@ -17,11 +17,23 @@
     <link rel="stylesheet" href="~/weatherstyle_tablet1.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="~/sidebar.css">
+    <link rel="stylesheet" href="~/people.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>*@
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-3.1.1-min.js"></script>
+
+
+
+
 </head>
 <body style="background-color:beige">
+
+
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -34,15 +46,7 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#">
-                        <i class="fas fa-cog"></i>
-                        <b>
-                            設定
-                        </b>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
+                    <a href="MemberQA">
                         <i class="fas fa-question"></i>
                         <b>
                             常見問題
@@ -101,35 +105,152 @@
                             <div class="weatherWeek"></div>
                         </div>
                     </div>
-                    <div class="img">
-                        <img width="180" src="~/img/girl1.PNG">
-                        <img width="180" src="~/img/boy.PNG">
+                    <span id="weatherNowTemp">1000</span>
+
+                    <div id="slider">
+                        <input type="radio" name="slider" id="slide1" checked>
+                        <input type="radio" name="slider" id="slide2">
+                        <input type="radio" name="slider" id="slide3">
+                        <div id="slides">
+                            <div id="overflow">
+                                <div class="inner">
+                                    <div class="slide slide_1">
+                                        <div class="slide-content">
+                                            <img id="imageid" />
+                                        </div>
+                                    </div>
+
+                                    <div class="slide slide_1">
+                                        <div class="slide-content">
+                                            <img id="imagid" />
+                                        </div>
+                                    </div>
+
+                                    <div class="slide slide_2">
+                                        <div class="slide-content">
+                                            <img id="igid" />
+                                        </div>
+                                    </div>
+                                    <div class="slide slide_3">
+                                        <div class="slide-content">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="controls">
+                            <label for="slide1"></label>
+                            <label for="slide2"></label>
+                            <label for="slide3"></label>
+
+                        </div>
+                        <div id="bullets">
+                            <label for="slide1"></label>
+                            <label for="slide2"></label>
+                            <label for="slide3"></label>
+
+                        </div>
                     </div>
                 </div>
-                </div>  
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#sidebar").mCustomScrollbar({
-                    theme: "minimal"
-                });
+    </div>
 
-                $('#sidebarCollapse').on('click', function () {
-                    $('#sidebar, #content').toggleClass('active');
-                    $('.collapse.in').toggleClass('in');
-                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-                });
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
             });
-        </script>
-        <script type="text/javascript" src="~/Scripts/jquery-3.1.1-min.js"></script>
-        <script type="text/javascript" src="~/Scripts/cityData.js"></script>
-        <script type="text/javascript" src="~/Scripts/WeatherScript.js"></script>
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    <script type="text/javascript" src="~/Scripts/cityData.js"></script>
+    <script type="text/javascript" src="~/Scripts/WeatherScript.js"></script>
+    <script>
+        $('#weatherNowTemp').on('DOMSubtreeModified', function () {
+            var averagetemp = document.getElementById("weatherNowTemp").innerText;
+            alert('現在溫度:' + averagetemp);
+            var img = document.getElementById("imageid");
+            //averagetemp = 20;
+            if (averagetemp >= 30) {
+                img.src = "../img/boy/b30degrees_1.PNG";
+                img.width = '180';
+            } else if (averagetemp >= 25 && averagetemp < 30) {
+                img.src = "../img/boy/b25degrees_1.PNG";
+                img.width = '180';
+            } else if (averagetemp >= 20 && averagetemp < 25) {
+                img.src = "../img/boy/b20degrees_1.PNG";
+                img.width = '180';
+            } else if (averagetemp >= 15 && averagetemp < 20) {
+                img.src = "../img/boy/b15degrees_1.PNG";
+                img.width = '180';
+            } else if (averagetemp < 15) {
+                img.src = "../img/boy/b10degrees_1.PNG";
+                img.width = '180';
+            }
+        })
+
+    </script>
+    <script>
+        $('#weatherNowTemp').on('DOMSubtreeModified', function () {
+            var averagetemp = document.getElementById("weatherNowTemp").innerText;
+
+            var img = document.getElementById("imgid");
+            //averagetemp = 20;
+            if (averagetemp >= 30) {
+                img.src = "../img/boy/b30degrees_2.PNG";
+                img.width = '180';
+            } else if (averagetemp >= 25 && averagetemp < 30) {
+                img.src = "../img/boy/b25degrees_2.PNG";
+                img.width = '180';
+            } else if (averagetemp >= 20 && averagetemp < 25) {
+                img.src = "../img/boy/b20degrees_2.PNG";
+                img.width = '180';
+            } else if (averagetemp >= 15 && averagetemp < 20) {
+                img.src = "../img/boy/b15degrees_2.PNG";
+                img.width = '180';
+            } else if (averagetemp < 15) {
+                img.src = "../img/boy/b10degrees_2.PNG";
+                img.width = '180';
+            }
+        })
+
+    </script>
+    <script>
+        $('#weatherNowTemp').on('DOMSubtreeModified', function () {
+            var averagetemp = document.getElementById("weatherNowTemp").innerText;
+
+            var img = document.getElementById("igid");
+            //averagetemp = 20;
+            if (averagetemp >= 30) {
+                img.src = "../img/boy/b30degrees_3.PNG";
+                img.width = '180';
+            } else if (averagetemp >= 25 && averagetemp < 30) {
+                img.src = "../img/boy/b25degrees_3.PNG";
+                img.width = '180';
+            } else if (averagetemp >= 20 && averagetemp < 25) {
+                img.src = "../img/boy/b20degrees_3.PNG";
+                img.width = '180';
+            } else if (averagetemp >= 15 && averagetemp < 20) {
+                img.src = "../img/boy/b15degrees_3.PNG";
+                img.width = '180';
+            } else if (averagetemp < 15) {
+                img.src = "../img/boy/b10degrees_3.PNG";
+                img.width = '180';
+            }
+        })
+
+    </script>
+
 </body>
 </html>
 

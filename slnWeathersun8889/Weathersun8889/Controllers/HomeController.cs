@@ -5,35 +5,27 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using System.Data;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Net;
 using System.Net.Mail;
-using System.Drawing;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Data.Entity.Validation;
-
+using System.Net;
 
 namespace Weathersun8889.Controllers
 {
     public class HomeController : Controller
     {
         WeathersunEntities1 db = new WeathersunEntities1();
-        
 
         public ActionResult AdminLogin()  //管理員登入
         {
             return View();
         }
         [HttpPost]
-        public ActionResult AdminLogin(string loginName, string loginPwd)    
+        public ActionResult AdminLogin(string loginName, string loginPwd)
         {
             var man = db.Admin
                 .Where(m => m.Aaccount == loginName && m.Apassword == loginPwd)
                 .FirstOrDefault();
             if (man == null)
-            { 
+            {
                 ViewBag.Message = "帳號、密碼錯誤，登入失敗!";
                 return View("AdminLogin");
             }
@@ -101,47 +93,31 @@ namespace Weathersun8889.Controllers
         {
             return View();
         }
+        public ActionResult AdminManual()  //使用守則
+        {
+            return View();
+        }
+        public ActionResult MemberQA()  //常見問題
+        {
+            return View();
+        }
+        public ActionResult CalendarQA()  //日曆常見問題
+        {
+            return View();
+        }
+        public ActionResult WeatherQA()  //天氣常見問題
+        {
+            return View();
+        }
+        public ActionResult ShopQA()  //商店常見問題
+        {
+            return View();
+        }
+        public ActionResult NewsQA()  //新聞常見問題
+        {
+            return View();
+        }
         public ActionResult Welcome()  //會員登入之後的畫面
-        {
-            return View();
-        }
-
-        public ActionResult ForgetPassword()  //忘記密碼
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult ForgetPassword(string email, string activationCode)  //忘記密碼
-        {
-            var verifyUrl = "/Advance/ResetPwd/" + activationCode;
-            var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
-
-            var fromEmail = new MailAddress("weathersun8889@gmail.com");
-            var toEmail = new MailAddress(email);
-            var fromEmailPassword = "sunny8889";//Replace with actual password
-            string subject = "重設密碼";
-            string body = "<h4>您好!這是來自晴穿搭的訊息</h4><br/>請按下下列連結來重設密碼";
-            var smtp = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
-            };
-
-            using (var message = new MailMessage(fromEmail, toEmail)
-            {
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            })
-
-            smtp.Send(message);
-            return View();
-        }
-        public ActionResult PasswordReset()  //密碼重設
         {
             return View();
         }
@@ -171,11 +147,11 @@ namespace Weathersun8889.Controllers
             ViewBag.calList = str;
             return View();
         }
-        public ActionResult DeleteEvent( string Title) //刪除紀錄
+        public ActionResult DeleteEvent(string Title) //刪除紀錄
         {
-            var title = db.Calendar
+            var wear = db.Calendar
                .Where(m => m.WearNote == Title).FirstOrDefault();
-            db.Calendar.Remove(title);
+            db.Calendar.Remove(wear);
             db.SaveChanges();
             return View();
         }
@@ -196,15 +172,15 @@ namespace Weathersun8889.Controllers
             db.SaveChanges();
             return str;
         }
-        public ActionResult Weather()  //天氣
-        {
-            return View();
-        }
-        public ActionResult News()  //新聞
+            public ActionResult Weather()  //天氣
         {
             return View();
         }
         public ActionResult Shop()  //商城
+        {
+            return View();
+        }
+        public ActionResult News()  //新聞
         {
             return View();
         }
@@ -241,23 +217,62 @@ namespace Weathersun8889.Controllers
             var adv = db.WebpageFeedback.ToList();
             return View(adv);
         }
+        public ActionResult PageFeedback(string Email, string PhoneNumber, string Feedbook)  //網頁意見回饋
+        {
+            string strMailBody = String.Empty;
+
+            strMailBody += Email;
+            strMailBody += PhoneNumber;
+            strMailBody += Feedbook;
+
+            Email_Cs objEmail = new Email_Cs();
+
+
+            return View();
+        }
         public ActionResult WebHomepage()  //歡迎來到晴穿搭
         {
             return View();
         }
         [HttpPost]
-        public ActionResult WebHomepage(WebpageFeedback advise)
+        public ActionResult WebHomepage(WebpageFeedback advise, string email, string activationCode)
         {
-            if (ModelState.IsValid)
+            var verifyUrl = "/Advance/ResetPwd/" + activationCode;
+            var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
+
+            var fromEmail = new MailAddress("weathersun8889@gmail.com");
+            var toEmail = new MailAddress(email);
+            var fromEmailPassword = "sunny8889";//Replace with actual password
+            string subject = "已收到您的意見回饋";
+            string body = "<h4>已收到您的意見回饋!謝謝!</h4>";
+            var smtp = new SmtpClient
             {
-                db.WebpageFeedback.Add(advise);
-                db.SaveChanges();
-                ViewBag.Msg = "您的意見回饋已寄出!🚀";
-            }
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
+            };
+
+            using (var massage = new MailMessage(fromEmail, toEmail)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+                if (ModelState.IsValid)
+                {
+
+                    db.WebpageFeedback.Add(advise);
+                    db.SaveChanges();
+                    ViewBag.Msg = "您的意見回饋已寄出!🚀";
+                    smtp.Send(massage);
+                }
             return View("WebHomepage");
         }
- 
-      
+
+
         public ActionResult Announcementcreate()  //公告新增
         {
             return View();
@@ -401,26 +416,20 @@ namespace Weathersun8889.Controllers
         }
 
         [HttpPost]
-        public ActionResult MemberSignup(string Account,string Gender,string Name,string Password,DateTime Birdate,string Location) 
-        //會員產品物件屬性會對應至表單同名欄位，account這個參數的產品物件屬性可接收表單欄位的資料
+        public ActionResult MemberSignup(Member account)  //會員產品物件屬性會對應至表單同名欄位，account這個參數的產品物
+                                                          //件屬性可接收表單欄位的資料
         {
             if (ModelState.IsValid == false)
             {
                 return View();
             }
-            var sign = db.Member
-                 .Where(m => m.Account == Account)   //m是會員帳號的參數，m的會員帳號值等於account的會員帳號值一樣的話，會拒絕存取
+            var mem = db.Member
+                 .Where(m => m.Account == account.Account)  //m是會員帳號的參數，m的會員帳號值等於account的會員帳號
+                                                            //值一樣的話，會拒絕存取
                  .FirstOrDefault();
-            if (sign == null)
+            if (mem == null)
             {
-                Member mem = new Member();
-                mem.Account = Account;
-                mem.Gender = Gender;
-                mem.Name = Name;
-                mem.Password = Password;
-                mem.Birdate = Birdate;
-                mem.Location = Location;
-                db.Member.Add(mem);
+                db.Member.Add(account);
                 db.SaveChanges();
                 ViewBag.Msg = "註冊成功!";
                 return View();
@@ -454,7 +463,7 @@ namespace Weathersun8889.Controllers
         }
         [HttpPost]
         public ActionResult AnnouncementEdit
-                (int AID ,string Aaccount, string Account, string SystemAnnounce, DateTime Date)
+                (int AID, string Aaccount, string Account, string SystemAnnounce, DateTime Date)
         {
             var ann = db.Announcement
                  .Where(m => m.Aaccount == Aaccount).FirstOrDefault();
@@ -497,5 +506,9 @@ namespace Weathersun8889.Controllers
             db.SaveChanges();
             return RedirectToAction("Product");
         }
+    }
+
+    internal class Email_Cs
+    {
     }
 }

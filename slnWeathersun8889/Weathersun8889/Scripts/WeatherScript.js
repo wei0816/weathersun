@@ -63,11 +63,15 @@ function NowWeather(forcast) {
         '<p>' + parseInt(averagetemp.elementValue[0].value) + '&deg;</p>' +
         '</div>';
     $(".weatherNow").append($WeatherNow);
+    var nowTemp = parseInt(averagetemp.elementValue[0].value);
+    $("#weatherNowTemp").text(nowTemp);
 }
 
 function GetMMDDString(today) {
     return (today.getMonth() + 1) + '/' + today.getDate()
 }
+
+
 //下一周氣象
 function weatherWeekDay(index) {
     //如果是下周的頭和尾

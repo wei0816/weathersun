@@ -105,6 +105,7 @@
       <DependentUpon>DatabaseWS.mdf</DependentUpon>
     </Content>
     <Content Include="background.css" />
+    <Content Include="bannerslider.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -113,6 +114,7 @@
     <Content Include="homepage.css" />
     <Content Include="item.css" />
     <Content Include="panel.css" />
+    <Content Include="people.css" />
     <Content Include="product.css" />
     <Content Include="productpics\%28男女適穿%29男裝GU DRY吸濕速乾羅馬布寬版T%285分袖%29.jpg" />
     <Content Include="productpics\Paris Saint-Germain.jpg" />
@@ -133,6 +135,7 @@
     <Content Include="sidebar.css" />
     <Content Include="slider.css" />
     <Content Include="slider1.css" />
+    <Content Include="slider2.css" />
     <Content Include="weatherstyle1.css" />
     <Content Include="weatherstyle_tablet1.css" />
     <Content Include="Weathersun.Context.tt">
@@ -241,6 +244,12 @@
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\ForgetPassword.cshtml" />
     <Content Include="Views\Home\PasswordReset.cshtml" />
+    <Content Include="Views\Home\AdminManual.cshtml" />
+    <Content Include="Views\Home\MemberQA.cshtml" />
+    <Content Include="Views\Home\CalendarQA.cshtml" />
+    <Content Include="Views\Home\WeatherQA.cshtml" />
+    <Content Include="Views\Home\ShopQA.cshtml" />
+    <Content Include="Views\Home\NewsQA.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

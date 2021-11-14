@@ -1,0 +1,183 @@
+﻿@model IEnumerable<Weathersun8889.Admin>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -晴穿搭</title>
+    <link rel="sun-touch-icon" sizes="76x76" href="~/img/sun-icon.png">
+    <link rel="icon" type="image/png" href="~/img/weathersun.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        晴穿搭
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <link href="~/Content/demo/demo.css" rel="stylesheet" />
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script>
+    $(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+@{ ViewBag.Title = "管理員平台"; }
+
+
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="white" data-active-color="danger">
+            <div class="logo">
+                <a class="simple-text logo-mini">
+                    <div class="logo-image-small">
+                        <img src="~/img/logo-sun.png">
+                    </div>
+                    <!-- <p>CT</p> -->
+                </a>
+                <a class="simple-text logo-normal">
+                    <strong>
+                        晴穿搭
+                    </strong>
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="Member">
+
+                            <h6>👦🏻 會員管理平台</h6>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Admin">
+
+                            <h6>👩‍🔧 管理員平台</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Announcement">
+
+                            <h6>📜 公告事項</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="MemberFeedback">
+
+                            <h6>📰 系統回報資料</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="WebpageFeedback">
+
+                            <h6>✉ 網頁意見回饋資料表</h6>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Product">
+
+                            <h6>👕 商品</h6>
+                        </a>
+                    </li>
+
+                    <li class="active-pro">
+
+                        <p>&nbsp;&nbsp;&copy;@DateTime.Now.Year - 晴穿搭</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="javascript:;"><strong>晴穿搭後臺管理⛅</strong></a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link btn-rotate" href="#">
+
+                                    <p style="color:lightsalmon">
+                                        <strong>
+                                            使用守則
+                                        </strong>
+                                    </p>
+                                </a>
+                            <li class="nav-item">
+                                <a class="nav-link btn-rotate" href="AdminLogin">
+
+                                    <p>
+                                        登出
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>使用守則</h3>
+                                <p>
+                                    您好！
+                                    歡迎來到晴穿搭管理系統
+                                    請點選左方網站頁籤 進行各項管理增修功能
+                                    <br /> ———————————————————————
+
+                                    <br /> ※晴穿搭管理者應經常性瀏覽開發者所發佈之各條公告事項，以免遺漏工作上所須知之重要訊息。
+                                    <br /> ※ 晴穿搭後台管理系統僅供管理者於工作時使用，嚴格禁止對外之發佈。
+                                    <br /> ※ 後台管理系統內存之大量資料，每位使用者皆有責任保護其完整性。
+                                    <br />※ 任何有意或疏忽所造成之損害，開發者有權做責任追究。
+                                    <br />※ 後台資料庫係為工作效率之提昇所建，歡迎晴穿搭員工於日常工作需要時，善用配套之功能，截取所需之資料。
+                                    <br />※ 資料庫為晴穿搭之重要資產，嚴格禁止非個人工作權限內之大量下載。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1>&nbsp;</h1>
+            <h1>&nbsp;</h1>
+            <h1>&nbsp;</h1>
+            <div class="credits ml-auto">
+                <div class="container body-content">
+                    <hr />
+                    <footer>
+                        <p>&copy; @DateTime.Now.Year - 晴穿搭</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
