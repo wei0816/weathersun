@@ -271,8 +271,48 @@ namespace Weathersun8889.Controllers
                 }
             return View("WebHomepage");
         }
+        public ActionResult ForgetPassword()  //忘記密碼
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ForgetPassword( string email, string activationCode)
+        {
+            var verifyUrl = "/Advance/ResetPwd/" + activationCode;
+            var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
 
+            var fromEmail = new MailAddress("weathersun8889@gmail.com");
+            var toEmail = new MailAddress(email);
+            var fromEmailPassword = "sunny8889";//Replace with actual password
+            string subject = "您好!我們是晴穿搭⛅";
+            string body = "<h4>已收到您的意見回饋!謝謝!</h4><p>如需專人協助請至晴穿搭粉專做洽詢!</p>";
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
+            };
 
+            using (var massage = new MailMessage(fromEmail, toEmail)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+                if (ModelState.IsValid)
+                {
+                    ViewBag.Msg = "請查看您的信箱!";
+                    smtp.Send(massage);
+                }
+            return View("ForgetPassword");
+        }
+        public ActionResult PasswordReset()  //密碼重設
+        {
+            return View();
+        }
         public ActionResult Announcementcreate()  //公告新增
         {
             return View();
